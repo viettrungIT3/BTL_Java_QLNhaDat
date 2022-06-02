@@ -4,7 +4,7 @@ import java.sql.*;
 
 public class CSDL {
 
-    // SQL Server
+    // My SQL with XAMPP 
     private static final String DATABASE_NAME = "btl_java_qlnhadat";
     private static final String DB_URL = "jdbc:mysql://localhost:3306/" + DATABASE_NAME;
     private static final String USERNAME = "root";
@@ -33,21 +33,4 @@ public class CSDL {
         con.close();
     }
 
-    // My SQL with XAMPP
-//    public static void main(String[] args) {
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/btl_java_qlnhadat", "root", "");
-//            Statement stmt = con.createStatement();
-//            ResultSet rs = stmt.executeQuery("select * from users");
-//            while (rs.next()) {
-//                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
-//            }
-//            con.close();
-//        } catch (ClassNotFoundException | SQLException ex) {
-//            System.out.println("Connect database failure!");
-//            System.out.println(ex.getMessage());
-//            System.exit(0);
-//        }
-//    }
 }
