@@ -18,19 +18,19 @@ public class CSDL {
         return null;
     }
     
-    public static void main(String args[]) {
-        try {
-            Connection conn = getConnection();
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
-            while (rs.next()) {
-                System.out.println(rs.getString(2));
-            }
-            conn.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
+//    public static void main(String args[]) {
+//        try {
+//            Connection conn = getConnection();
+//            Statement stmt = conn.createStatement();
+//            ResultSet rs = stmt.executeQuery("SELECT * FROM users");
+//            while (rs.next()) {
+//                System.out.println(rs.getString(2));
+//            }
+//            conn.close();
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
+//    }
 
 //    // My SQL with XAMPP 
 //    private static final String DATABASE_NAME = "btl_java_qlnhadat";
