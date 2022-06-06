@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Models.Account;
+import quanlynhadat.views.admin.AdminScreenMain;
 
 /**
  *
@@ -136,7 +137,9 @@ public class Login extends javax.swing.JFrame {
             acc = accountController.checkLogin(username, password);
             if (acc != null) {
                 if( acc.getRole_id() == 1 ) {
-                    JOptionPane.showMessageDialog(null, "Đăng nhập tk Admin thành công!");
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thành công với quyền Admin!");
+                    AdminScreenMain adminScreenMain = new AdminScreenMain();
+                    adminScreenMain.setVisible(true);
                 }else {
                     JOptionPane.showMessageDialog(null, "Đăng nhập tk user thành công!");
                 }
