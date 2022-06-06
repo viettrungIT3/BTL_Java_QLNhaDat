@@ -79,7 +79,7 @@ public class AccountController {
         return acc;
     }
 
-    public static boolean CreateAccount(Account account) {
+    public static boolean CreateNewAccount(Account account) {
         String sql = "INSERT INTO USERS ( fullname, username, password, role_id ) VALUES( ? , ? , ? , ?)";
         try {
             Connection conn = getConnection();
