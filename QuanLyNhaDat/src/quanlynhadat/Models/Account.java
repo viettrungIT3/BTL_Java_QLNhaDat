@@ -4,26 +4,33 @@
  */
 package quanlynhadat.Models;
 
-import java.util.Date;
+import java.io.Serializable;
 
 /**
  *
  * @author Trung
  */
-public class Account {
+public class Account implements Serializable{
      private int id;
-    private String username;
     private String fullname;
+    private String username;
     private String password;
     private int role_id;
 
     public Account() {
     }
 
-    public Account(int id, String username, String fullname, String password, int role_id) {
-        this.id = id;
-        this.username = username;
+    public Account(String fullname, String username, String password, int role_id) {
         this.fullname = fullname;
+        this.username = username;
+        this.password = password;
+        this.role_id = role_id;
+    }
+
+    public Account(int id, String fullname, String username, String password, int role_id) {
+        this.id = id;
+        this.fullname = fullname;
+        this.username = username;
         this.password = password;
         this.role_id = role_id;
     }
@@ -36,20 +43,20 @@ public class Account {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getFullname() {
         return fullname;
     }
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -70,9 +77,7 @@ public class Account {
 
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", username=" + username + ", fullname=" + fullname + ", password=" + password + ", role_id=" + role_id + '}';
+        return "Account{" + "id=" + id + ", fullname=" + fullname + ", username=" + username + ", password=" + password + ", role_id=" + role_id + '}';
     }
 
-    
-    
 }

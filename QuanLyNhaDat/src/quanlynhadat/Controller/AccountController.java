@@ -16,20 +16,37 @@ import static quanlynhadat.csdl.CSDL.getConnection;
  */
 public class AccountController {
 
+    final AccountFileController afc = new AccountFileController();
+
+    public AccountController() {
+        afc.FileToSql();
+    }
+
+    // hàm hủy
+    @Override
+    public void finalize() throws Throwable {
+        try {
+            System.out.println("Đã gọi tới hàm hủy");
+            afc.SqlToFile();
+        } finally {
+            super.finalize();
+        }
+    }
+
     public static List<Account> getAllAccount() {
         List<Account> accounts = new ArrayList<>();
-        String sql = "select * from users";
+        String sql = "select * from USERS";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
+            ResultSet p = stmt.executeQuery(sql);
+            while (p.next()) {
                 Account acc = new Account(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getInt(5)
+                        p.getInt(1),
+                        p.getString(2),
+                        p.getString(3),
+                        p.getString(4),
+                        p.getInt(5)
                 );
 
                 accounts.add(acc);
@@ -42,23 +59,47 @@ public class AccountController {
 
     public static Account checkLogin(String username, String password) {
         Account acc = null;
-        String sql = "select * from users where username = '" + username + "' and password = '" + password + "'";
+        String sql = "select * from USERS where username = '" + username + "' and password = '" + password + "'";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            if (rs.next()) {
+            ResultSet p = stmt.executeQuery(sql);
+            if (p.next()) {
                 acc = new Account(
-                        rs.getInt(1),
-                        rs.getString(2),
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getInt(5)
+                        p.getInt(1),
+                        p.getString(2),
+                        p.getString(3),
+                        p.getString(4),
+                        p.getInt(5)
                 );
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return acc;
+    }
+
+    public static boolean CreateNewAccount(Account account) {
+        String sql = "INSERT INTO USERS ( fullname, username, password, role_id ) VALUES( ? , ? , ? , ?)";
+        try {
+            Connection conn = getConnection();
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, account.getFullname());
+            p.setString(2, account.getUsername());
+            p.setString(3, account.getPassword());
+            p.setInt(4, account.getRole_id());
+            if (p.executeUpdate() > 0) {
+                return true;
+            }
+            p.execute();
+            p.close();
+            conn.close();
+            System.out.println("Create new account success!");
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }

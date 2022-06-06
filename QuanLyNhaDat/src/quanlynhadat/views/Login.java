@@ -8,6 +8,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Models.Account;
+import quanlynhadat.views.admin.AdminScreenMain;
 
 /**
  *
@@ -39,7 +40,7 @@ public class Login extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Chương trình quản lý nhà đất");
+        setTitle("CHƯƠNG TRÌNH QUẢN LÝ NHÀ ĐẤT");
 
         jLabelDangNhap.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelDangNhap.setText("Đăng nhập");
@@ -93,13 +94,9 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabelTaiKhoan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 49, 49)))
-                .addContainerGap())
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,10 +133,13 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Vui vòng nhập đầy đủ thông tin!");
         } else {
             Account acc = new Account();
-            acc = AccountController.checkLogin(username, password);
+            AccountController accountController = new AccountController();
+            acc = accountController.checkLogin(username, password);
             if (acc != null) {
                 if( acc.getRole_id() == 1 ) {
-                    JOptionPane.showMessageDialog(null, "Đăng nhập tk Admin thành công!");
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thành công với quyền Admin!");
+                    AdminScreenMain adminScreenMain = new AdminScreenMain();
+                    adminScreenMain.setVisible(true);
                 }else {
                     JOptionPane.showMessageDialog(null, "Đăng nhập tk user thành công!");
                 }
