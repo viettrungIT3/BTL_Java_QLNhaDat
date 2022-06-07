@@ -20,17 +20,6 @@ public class AccountController {
     public AccountController() {
     }
 
-    // hàm hủy
-    @Override
-    public void finalize() throws Throwable {
-        try {
-            System.out.println("Đã gọi tới hàm hủy");
-            afc.SqlToFile();
-        } finally {
-            super.finalize();
-        }
-    }
-
     public static List<Account> getAllAccount() {
         List<Account> accounts = new ArrayList<>();
         String sql = "select * from USERS";
