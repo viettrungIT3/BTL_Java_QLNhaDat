@@ -84,8 +84,8 @@ public class UsersManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbUser);
         if (tbUser.getColumnModel().getColumnCount() > 0) {
-            tbUser.getColumnModel().getColumn(0).setMinWidth(30);
-            tbUser.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tbUser.getColumnModel().getColumn(0).setMinWidth(40);
+            tbUser.getColumnModel().getColumn(0).setPreferredWidth(40);
             tbUser.getColumnModel().getColumn(0).setMaxWidth(30);
             tbUser.getColumnModel().getColumn(1).setMinWidth(40);
             tbUser.getColumnModel().getColumn(1).setPreferredWidth(40);
