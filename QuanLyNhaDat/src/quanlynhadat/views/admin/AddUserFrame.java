@@ -168,6 +168,10 @@ public class AddUserFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Tên đăng nhập không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
+        if (AccountController.checkUsername( txtUsername.getText().trim())) {
+            JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã tồn tại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if (String.valueOf(txtPassword.getPassword()).trim().compareTo("") == 0) {
             JOptionPane.showConfirmDialog(null, "Mật khẩu không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
@@ -177,7 +181,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             return;
         }
 
-        Account account = new Account( txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 1);
+        Account account = new Account( txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2);
         if (!AccountController.CreateNewAccount(account)) {
             JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thất bại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;

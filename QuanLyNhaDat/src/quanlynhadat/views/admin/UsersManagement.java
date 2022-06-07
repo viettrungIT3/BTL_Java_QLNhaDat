@@ -5,6 +5,7 @@
  */
 package quanlynhadat.views.admin;
 
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -84,8 +85,8 @@ public class UsersManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbUser);
         if (tbUser.getColumnModel().getColumnCount() > 0) {
-            tbUser.getColumnModel().getColumn(0).setMinWidth(30);
-            tbUser.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tbUser.getColumnModel().getColumn(0).setMinWidth(40);
+            tbUser.getColumnModel().getColumn(0).setPreferredWidth(40);
             tbUser.getColumnModel().getColumn(0).setMaxWidth(30);
             tbUser.getColumnModel().getColumn(1).setMinWidth(40);
             tbUser.getColumnModel().getColumn(1).setPreferredWidth(40);
@@ -245,7 +246,7 @@ public class UsersManagement extends javax.swing.JFrame {
             Account account = accounts.get(i);
             if (account.getRole_id() != 1) {
                 stt++;
-                model.addRow(new Object[]{ stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
             }
         }
     }//GEN-LAST:event_formWindowOpened
@@ -270,10 +271,6 @@ public class UsersManagement extends javax.swing.JFrame {
         Vector<Object> accountVector = (Vector<Object>) tableModel.getDataVector().elementAt(tbUser.getSelectedRow());
 
         Account account = AccountController.getAccountByID(Integer.parseInt(accountVector.get(1).toString()));
-//        account.setId(Integer.parseInt(accountVector.get(1).toString()));
-//        account.setFullname(accountVector.get(2).toString());
-//        account.setUsername(accountVector.get(3).toString());
-//        account.setPassword(accountVector.get(4).toString());
 
         txtId.setText(account.getId() + "");
         txtName.setText(account.getFullname());
@@ -320,48 +317,56 @@ public class UsersManagement extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-//        if (txtUsername.getText().trim().compareTo("") == 0) {
-//            return;
-//        }
-//
-//        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//        if (responseConfirm == JOptionPane.YES_OPTION) {
-//            if (!accountService.deleteAccount(Integer.parseInt(txtId.getText()))) {
-//                JOptionPane.showConfirmDialog(null, "Xóa tài khoản thất bại", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            JOptionPane.showConfirmDialog(null, "Xóa tài khoản thành công", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//            DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//            model.setRowCount(0);
-//            formWindowOpened(null);
-//        }
+        if (txtUsername.getText().trim().compareTo("") == 0) {
+            return;
+        }
+
+        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (responseConfirm == JOptionPane.YES_OPTION) {
+            if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()))) {
+                JOptionPane.showConfirmDialog(null, "Xóa tài khoản thất bại", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showConfirmDialog(null, "Xóa tài khoản thành công", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+            model.setRowCount(0);
+            formWindowOpened(null);
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyPressed
         // TODO add your handling code here:
-//        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-//            if (txtSearch.getText().trim().compareTo("") == 0) {
-//                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//                model.setRowCount(0);
-//
-//                List<Account> accounts = accountService.getAllAccounts();
-//
-//                for (int i = 0; i < accounts.size(); i++) {
-//                    Account account = accounts.get(i);
-//                    model.addRow(new Object[]{i + 1, account.getAccountId(), account.getDisplayName(), account.getUsername(), account.getRole()});
-//                }
-//            } else {
-//                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//                model.setRowCount(0);
-//
-//                List<Account> accounts = accountService.getAccountsLikeUsername(txtSearch.getText());
-//
-//                for (int i = 0; i < accounts.size(); i++) {
-//                    Account account = accounts.get(i);
-//                    model.addRow(new Object[]{i + 1, account.getAccountId(), account.getDisplayName(), account.getUsername(), account.getRole()});
-//                }
-//            }
-//        }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtSearch.getText().trim().compareTo("") == 0) {
+                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+                model.setRowCount(0);
+
+                List<Account> accounts = AccountController.getAllAccount();
+
+                int stt = 0;
+                for (int i = 0; i < accounts.size(); i++) {
+                    Account account = accounts.get(i);
+                    if (account.getRole_id() != 1) {
+                        stt++;
+                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                    }
+                }
+            } else {
+                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+                model.setRowCount(0);
+
+                List<Account> accounts = AccountController.getAccountsLikeUsername(txtSearch.getText());
+
+                int stt = 0;
+                for (int i = 0; i < accounts.size(); i++) {
+                    Account account = accounts.get(i);
+                    if (account.getRole_id() != 1) {
+                        stt++;
+                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_txtSearchKeyPressed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed

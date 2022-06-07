@@ -57,6 +57,30 @@ public class AccountController {
         }
         return accounts;
     }
+    
+    public static List<Account> getAccountsLikeUsername(String name) {
+        List<Account> accounts = new ArrayList<>();
+        String sql = "select * from USERS where username LIKE '%" + name + "%'";
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet p = stmt.executeQuery(sql);
+            while (p.next()) {
+                Account acc = new Account(
+                        p.getInt(1),
+                        p.getString(2),
+                        p.getString(3),
+                        p.getString(4),
+                        p.getInt(5)
+                );
+
+                accounts.add(acc);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error get all account: " + e.getMessage());
+        }
+        return accounts;
+    }
 
     public static Account getAccountByID(int id) {
         Account acc = null;
@@ -79,7 +103,7 @@ public class AccountController {
         }
         return acc;
     }
-    
+
     public static Account checkLogin(String username, String password) {
         Account acc = null;
         String sql = "select * from USERS where username = '" + username + "' and password = '" + password + "'";
@@ -100,6 +124,33 @@ public class AccountController {
             System.out.println(e.getMessage());
         }
         return acc;
+    }
+
+    public static boolean checkUsername(String username) {
+        Account acc = null;
+        String sql = "select * from USERS where username = '" + username + "'";
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet p = stmt.executeQuery(sql);
+            if (p.next()) {
+                acc = new Account(
+                        p.getInt(1),
+                        p.getString(2),
+                        p.getString(3),
+                        p.getString(4),
+                        p.getInt(5)
+                );
+            }
+            if (acc == null) {
+                return false;
+            } else {
+                return true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 
     public static boolean CreateNewAccount(Account account) {
@@ -142,6 +193,26 @@ public class AccountController {
             p.close();
             conn.close();
             System.out.println("Update account success!");
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+    
+    public static boolean deleteAccount(Integer accountId) {
+        String sqlDeleteUser = "DELETE FROM USERS WHERE id = ?";
+        try {
+
+            Connection conn = CSDL.getConnection();
+            PreparedStatement p = conn.prepareStatement(sqlDeleteUser);
+
+            p.setInt(1, accountId);
+
+            p.execute();
+            p.close();
+            conn.close();
             return true;
 
         } catch (SQLException e) {
