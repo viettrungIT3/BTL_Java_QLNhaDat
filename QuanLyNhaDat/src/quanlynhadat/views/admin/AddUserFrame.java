@@ -40,7 +40,6 @@ public class AddUserFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("THÊM TÀI KHOẢN NGƯỜI DÙNG");
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Thêm tài khoản người dùng");
@@ -49,7 +48,7 @@ public class AddUserFrame extends javax.swing.JFrame {
         jLabel2.setText("Họ tên:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Tên tài khoản:");
+        jLabel3.setText("Tên đăng nhập:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Mật khẩu:");
@@ -166,7 +165,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             return;
         }
         if (txtUsername.getText().trim().compareTo("") == 0) {
-            JOptionPane.showConfirmDialog(null, "Tên tài khoản không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showConfirmDialog(null, "Tên đăng nhập không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
         if (String.valueOf(txtPassword.getPassword()).trim().compareTo("") == 0) {
