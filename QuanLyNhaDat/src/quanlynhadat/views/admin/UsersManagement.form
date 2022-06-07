@@ -55,7 +55,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtDisplayName" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="txtName" min="-2" pref="150" max="-2" attributes="0"/>
                                   <Component id="txtId" min="-2" pref="150" max="-2" attributes="0"/>
                                   <Component id="txtUsername" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
                                   <Component id="txtPassword" alignment="1" min="-2" pref="150" max="-2" attributes="0"/>
@@ -98,7 +98,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtDisplayName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -211,7 +211,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsername">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtDisplayName">
+    <Component class="javax.swing.JTextField" name="txtName">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -264,6 +264,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtSearch">
       <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSearchActionPerformed"/>
         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchKeyPressed"/>
       </Events>
     </Component>

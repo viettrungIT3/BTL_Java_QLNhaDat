@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 import quanlynhadat.Models.Account;
+import quanlynhadat.csdl.CSDL;
 import static quanlynhadat.csdl.CSDL.getConnection;
 
 /**
@@ -57,6 +58,28 @@ public class AccountController {
         return accounts;
     }
 
+    public static Account getAccountByID(int id) {
+        Account acc = null;
+        String sql = "select * from USERS where id = '" + id + "'";
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet p = stmt.executeQuery(sql);
+            if (p.next()) {
+                acc = new Account(
+                        p.getInt(1),
+                        p.getString(2),
+                        p.getString(3),
+                        p.getString(4),
+                        p.getInt(5)
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return acc;
+    }
+    
     public static Account checkLogin(String username, String password) {
         Account acc = null;
         String sql = "select * from USERS where username = '" + username + "' and password = '" + password + "'";
@@ -95,6 +118,30 @@ public class AccountController {
             p.close();
             conn.close();
             System.out.println("Create new account success!");
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
+
+    public static boolean updateAccount(Account account) {
+        String sql = "UPDATE USERS SET fullname = ?, username = ?, password = ?  WHERE id = ?";
+        try {
+
+            Connection conn = CSDL.getConnection();
+            PreparedStatement p = conn.prepareStatement(sql);
+
+            p.setString(1, account.getFullname());
+            p.setString(2, account.getUsername());
+            p.setString(3, account.getPassword());
+            p.setInt(4, account.getId());
+
+            p.execute();
+            p.close();
+            conn.close();
+            System.out.println("Update account success!");
             return true;
 
         } catch (SQLException e) {

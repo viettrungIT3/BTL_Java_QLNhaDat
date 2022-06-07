@@ -7,6 +7,7 @@ package quanlynhadat.views.admin;
 
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Models.Account;
@@ -36,7 +37,7 @@ public class UsersManagement extends javax.swing.JFrame {
         txtId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtUsername = new javax.swing.JTextField();
-        txtDisplayName = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         btnAdd = new javax.swing.JButton();
@@ -138,6 +139,11 @@ public class UsersManagement extends javax.swing.JFrame {
 
         jLabel9.setText("Tìm kiếm theo tên:");
 
+        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchActionPerformed(evt);
+            }
+        });
         txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSearchKeyPressed(evt);
@@ -172,7 +178,7 @@ public class UsersManagement extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtDisplayName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -204,7 +210,7 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtDisplayName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
@@ -263,48 +269,52 @@ public class UsersManagement extends javax.swing.JFrame {
         DefaultTableModel tableModel = (DefaultTableModel) tbUser.getModel();
         Vector<Object> accountVector = (Vector<Object>) tableModel.getDataVector().elementAt(tbUser.getSelectedRow());
 
-        Account account = new Account();
-        account.setId(Integer.parseInt(accountVector.get(1).toString()));
-        account.setFullname(accountVector.get(2).toString());
-        account.setUsername(accountVector.get(3).toString());
-        account.setPassword(accountVector.get(4).toString());
+        Account account = AccountController.getAccountByID(Integer.parseInt(accountVector.get(1).toString()));
+//        account.setId(Integer.parseInt(accountVector.get(1).toString()));
+//        account.setFullname(accountVector.get(2).toString());
+//        account.setUsername(accountVector.get(3).toString());
+//        account.setPassword(accountVector.get(4).toString());
 
         txtId.setText(account.getId() + "");
-        txtDisplayName.setText(account.getFullname());
+        txtName.setText(account.getFullname());
         txtUsername.setText(account.getUsername());
         txtPassword.setText(account.getPassword());
     }//GEN-LAST:event_tbUserMouseClicked
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
-//        if (txtUsername.getText().trim().compareTo("") == 0) {
-//            return;
-//        }
-//
-//        Account account = new Account();
-//        account.setId(Integer.parseInt(txtId.getText()));
-//        account.setDisplayName(txtDisplayName.getText());
-//        account.setUsername(txtUsername.getText());
-//        account.setRole(cbRole.getSelectedItem().toString());
-//
-//        if (String.valueOf(txtPassword.getPassword()).trim().compareTo("") != 0) {
-//            if (String.valueOf(txtPassword.getPassword()).length() < 8) {
-//                JOptionPane.showConfirmDialog(null, "Mật khẩu phải có ít nhất 8 ký tự", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//
-//            account.setPassword(String.valueOf(txtPassword.getPassword()));
-//        }
-//
-//        if (!accountService.updateAccount(account)) {
-//            JOptionPane.showConfirmDialog(null, "Sửa thông tin tài khoản thất bại", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        JOptionPane.showConfirmDialog(null, "Sửa thông tin tài khoản thành công", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//
-//        DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//        model.setRowCount(0);
-//        formWindowOpened(null);
+        if (txtName.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Họ tên không được để trống", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (txtUsername.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Tên đăng nhập không được để trống", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (String.valueOf(txtPassword.getPassword()).trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Mật khẩu không được để trống", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (String.valueOf(txtPassword.getPassword()).length() < 8) {
+            JOptionPane.showConfirmDialog(null, "Mật khẩu phải có ít nhất 8 ký tự", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        Account account = new Account();
+        account.setId(Integer.parseInt(txtId.getText()));
+        account.setFullname(txtName.getText());
+        account.setUsername(txtUsername.getText());
+        account.setPassword(String.valueOf(txtPassword.getPassword()));
+
+        if (!AccountController.updateAccount(account)) {
+            JOptionPane.showConfirmDialog(null, "Sửa thông tin tài khoản thất bại", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        JOptionPane.showConfirmDialog(null, "Sửa thông tin tài khoản thành công", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+
+        DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+        model.setRowCount(0);
+        formWindowOpened(null);
 
     }//GEN-LAST:event_btnEditActionPerformed
 
@@ -353,6 +363,10 @@ public class UsersManagement extends javax.swing.JFrame {
 //            }
 //        }
     }//GEN-LAST:event_txtSearchKeyPressed
+
+    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -403,8 +417,8 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbUser;
-    private javax.swing.JTextField txtDisplayName;
     private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtSearch;
     private javax.swing.JTextField txtUsername;
