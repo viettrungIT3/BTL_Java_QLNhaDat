@@ -49,7 +49,6 @@ public class UsersManagement extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ NGƯỜI DÙNG");
-        setPreferredSize(new java.awt.Dimension(800, 600));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -84,11 +83,11 @@ public class UsersManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbUser);
         if (tbUser.getColumnModel().getColumnCount() > 0) {
-            tbUser.getColumnModel().getColumn(0).setMinWidth(40);
-            tbUser.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tbUser.getColumnModel().getColumn(0).setMinWidth(30);
+            tbUser.getColumnModel().getColumn(0).setPreferredWidth(30);
             tbUser.getColumnModel().getColumn(0).setMaxWidth(30);
-            tbUser.getColumnModel().getColumn(1).setMinWidth(50);
-            tbUser.getColumnModel().getColumn(1).setPreferredWidth(50);
+            tbUser.getColumnModel().getColumn(1).setMinWidth(40);
+            tbUser.getColumnModel().getColumn(1).setPreferredWidth(40);
             tbUser.getColumnModel().getColumn(1).setMaxWidth(40);
             tbUser.getColumnModel().getColumn(3).setMinWidth(150);
             tbUser.getColumnModel().getColumn(3).setPreferredWidth(150);

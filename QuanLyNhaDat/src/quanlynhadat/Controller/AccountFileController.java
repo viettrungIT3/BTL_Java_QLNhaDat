@@ -43,7 +43,7 @@ public class AccountFileController {
 
         for (Account a : a2) {
 //            System.out.println(a.toString());
-            AccountController.CreateAccount((Account) a);
+            AccountController.CreateNewAccount((Account) a);
         }
         System.out.println("FILE to SQL success!");
     }

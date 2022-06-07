@@ -222,9 +222,8 @@ public class AdminScreenMain extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         jMenu3.setText("Quản lý nhân viên");
-        jMenu3.setActionCommand("Quản lý nhân viên");
 
-        jMenuItem2.setText("Danh dùng nhân viên");
+        jMenuItem2.setText("Danh sách nhân viên");
         jMenuItem2.setActionCommand("Danh sách nhân viên");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
