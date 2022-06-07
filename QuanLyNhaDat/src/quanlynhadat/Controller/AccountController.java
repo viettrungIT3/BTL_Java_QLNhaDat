@@ -17,21 +17,7 @@ import static quanlynhadat.csdl.CSDL.getConnection;
  */
 public class AccountController {
 
-    final AccountFileController afc = new AccountFileController();
-
     public AccountController() {
-        afc.FileToSql();
-    }
-
-    // hàm hủy
-    @Override
-    public void finalize() throws Throwable {
-        try {
-            System.out.println("Đã gọi tới hàm hủy");
-            afc.SqlToFile();
-        } finally {
-            super.finalize();
-        }
     }
 
     public static List<Account> getAllAccount() {
