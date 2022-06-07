@@ -320,21 +320,21 @@ public class UsersManagement extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-//        if (txtUsername.getText().trim().compareTo("") == 0) {
-//            return;
-//        }
-//
-//        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//        if (responseConfirm == JOptionPane.YES_OPTION) {
-//            if (!accountService.deleteAccount(Integer.parseInt(txtId.getText()))) {
-//                JOptionPane.showConfirmDialog(null, "Xóa tài khoản thất bại", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            JOptionPane.showConfirmDialog(null, "Xóa tài khoản thành công", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//            DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//            model.setRowCount(0);
-//            formWindowOpened(null);
-//        }
+        if (txtUsername.getText().trim().compareTo("") == 0) {
+            return;
+        }
+
+        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (responseConfirm == JOptionPane.YES_OPTION) {
+            if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()))) {
+                JOptionPane.showConfirmDialog(null, "Xóa tài khoản thất bại", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showConfirmDialog(null, "Xóa tài khoản thành công", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+            model.setRowCount(0);
+            formWindowOpened(null);
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyPressed

@@ -176,4 +176,24 @@ public class AccountController {
             return false;
         }
     }
+    
+    public static boolean deleteAccount(Integer accountId) {
+        String sqlDeleteUser = "DELETE FROM USERS WHERE id = ?";
+        try {
+
+            Connection conn = CSDL.getConnection();
+            PreparedStatement p = conn.prepareStatement(sqlDeleteUser);
+
+            p.setInt(1, accountId);
+
+            p.execute();
+            p.close();
+            conn.close();
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }
