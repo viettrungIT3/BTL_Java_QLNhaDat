@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package quanlynhadat.views.admin;
 
 import java.awt.event.KeyEvent;
@@ -11,6 +6,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.AccountController;
+import quanlynhadat.Controller.AccountFileController;
 import quanlynhadat.Models.Account;
 
 public class UsersManagement extends javax.swing.JFrame {
@@ -48,6 +44,8 @@ public class UsersManagement extends javax.swing.JFrame {
         txtPassword = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
+        btnExport = new javax.swing.JButton();
+        btnImport = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ NGƯỜI DÙNG");
@@ -151,6 +149,22 @@ public class UsersManagement extends javax.swing.JFrame {
             }
         });
 
+        btnExport.setBackground(new java.awt.Color(0, 255, 255));
+        btnExport.setText("Xuất dữ liệu");
+        btnExport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExportActionPerformed(evt);
+            }
+        });
+
+        btnImport.setBackground(new java.awt.Color(0, 255, 255));
+        btnImport.setText("Nhập dữ liệu");
+        btnImport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnImportActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -185,12 +199,16 @@ public class UsersManagement extends javax.swing.JFrame {
                                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(btnImport)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExport)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -201,7 +219,9 @@ public class UsersManagement extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExport)
+                    .addComponent(btnImport))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -316,10 +336,6 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        if (txtUsername.getText().trim().compareTo("") == 0) {
-            return;
-        }
 
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (responseConfirm == JOptionPane.YES_OPTION) {
@@ -373,6 +389,32 @@ public class UsersManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
+    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
+        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn xuất dữ liệu tài khoản người dùng không?", "Xuất dữ liệu", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (responseConfirm == JOptionPane.YES_OPTION) {
+            AccountFileController.SqlToFile();
+            JOptionPane.showConfirmDialog(null, "Xuất thành công. Dữ liệu tài khoản người dùng đã được mã hóa và lưu lại trong file 'ACCOUNT.txt'", "Xuất dữ liệu", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+            model.setRowCount(0);
+            formWindowOpened(null);
+        } else {
+            JOptionPane.showConfirmDialog(null, "Xuất thất bại.", "Xuất dữ liệu", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnExportActionPerformed
+
+    private void btnImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportActionPerformed
+        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn nhập dữ liệu từ file 'ACCOUNT.txt' không?", "Nhập dữ liệu", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (responseConfirm == JOptionPane.YES_OPTION) {
+            AccountFileController.FileToSql();
+            JOptionPane.showConfirmDialog(null, "Nhập thành công.", "Nhập dữ liệu", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+            model.setRowCount(0);
+            formWindowOpened(null);
+        } else {
+            JOptionPane.showConfirmDialog(null, "Nhập thất bại.", "Nhập dữ liệu", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnImportActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -414,6 +456,8 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnExport;
+    private javax.swing.JButton btnImport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

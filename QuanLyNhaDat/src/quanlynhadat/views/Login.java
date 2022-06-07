@@ -7,6 +7,7 @@ package quanlynhadat.views;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import quanlynhadat.Controller.AccountController;
+import quanlynhadat.Controller.AccountFileController;
 import quanlynhadat.Models.Account;
 import quanlynhadat.views.admin.AdminScreenMain;
 
@@ -21,6 +22,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
+        AccountFileController.FileToSql();
     }
 
     /**

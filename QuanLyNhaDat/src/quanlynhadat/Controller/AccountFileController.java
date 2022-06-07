@@ -18,7 +18,7 @@ import static quanlynhadat.csdl.CSDL.getConnection;
  */
 public class AccountFileController {
 
-    public void SqlToFile() {
+    public static void SqlToFile() {
         List<Account> accountList = List.copyOf(AccountController.getAllAccount());
         AccountFile accountFile = new AccountFile();
         accountFile.write(accountList);
@@ -26,7 +26,7 @@ public class AccountFileController {
     }
 
 //    public static void main(String[] args) {
-    public void FileToSql() {
+    public static void FileToSql() {
         AccountFile accountFile = new AccountFile();
         try {
             String sql = "DELETE FROM USERS; DBCC CHECKIDENT ('[USERS]', RESEED, 0);";

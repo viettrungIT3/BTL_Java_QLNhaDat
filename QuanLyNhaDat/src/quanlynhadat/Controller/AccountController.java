@@ -17,10 +17,7 @@ import static quanlynhadat.csdl.CSDL.getConnection;
  */
 public class AccountController {
 
-    final AccountFileController afc = new AccountFileController();
-
     public AccountController() {
-        afc.FileToSql();
     }
 
     // hàm hủy
