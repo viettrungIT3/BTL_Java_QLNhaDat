@@ -57,6 +57,30 @@ public class AccountController {
         }
         return accounts;
     }
+    
+    public static List<Account> getAccountsLikeUsername(String name) {
+        List<Account> accounts = new ArrayList<>();
+        String sql = "select * from USERS where username LIKE '%" + name + "%'";
+        try {
+            Connection conn = getConnection();
+            Statement stmt = conn.createStatement();
+            ResultSet p = stmt.executeQuery(sql);
+            while (p.next()) {
+                Account acc = new Account(
+                        p.getInt(1),
+                        p.getString(2),
+                        p.getString(3),
+                        p.getString(4),
+                        p.getInt(5)
+                );
+
+                accounts.add(acc);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error get all account: " + e.getMessage());
+        }
+        return accounts;
+    }
 
     public static Account getAccountByID(int id) {
         Account acc = null;

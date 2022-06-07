@@ -5,6 +5,7 @@
  */
 package quanlynhadat.views.admin;
 
+import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JOptionPane;
@@ -245,7 +246,7 @@ public class UsersManagement extends javax.swing.JFrame {
             Account account = accounts.get(i);
             if (account.getRole_id() != 1) {
                 stt++;
-                model.addRow(new Object[]{ stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
             }
         }
     }//GEN-LAST:event_formWindowOpened
@@ -270,10 +271,6 @@ public class UsersManagement extends javax.swing.JFrame {
         Vector<Object> accountVector = (Vector<Object>) tableModel.getDataVector().elementAt(tbUser.getSelectedRow());
 
         Account account = AccountController.getAccountByID(Integer.parseInt(accountVector.get(1).toString()));
-//        account.setId(Integer.parseInt(accountVector.get(1).toString()));
-//        account.setFullname(accountVector.get(2).toString());
-//        account.setUsername(accountVector.get(3).toString());
-//        account.setPassword(accountVector.get(4).toString());
 
         txtId.setText(account.getId() + "");
         txtName.setText(account.getFullname());
@@ -339,29 +336,37 @@ public class UsersManagement extends javax.swing.JFrame {
 
     private void txtSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyPressed
         // TODO add your handling code here:
-//        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-//            if (txtSearch.getText().trim().compareTo("") == 0) {
-//                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//                model.setRowCount(0);
-//
-//                List<Account> accounts = accountService.getAllAccounts();
-//
-//                for (int i = 0; i < accounts.size(); i++) {
-//                    Account account = accounts.get(i);
-//                    model.addRow(new Object[]{i + 1, account.getAccountId(), account.getDisplayName(), account.getUsername(), account.getRole()});
-//                }
-//            } else {
-//                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
-//                model.setRowCount(0);
-//
-//                List<Account> accounts = accountService.getAccountsLikeUsername(txtSearch.getText());
-//
-//                for (int i = 0; i < accounts.size(); i++) {
-//                    Account account = accounts.get(i);
-//                    model.addRow(new Object[]{i + 1, account.getAccountId(), account.getDisplayName(), account.getUsername(), account.getRole()});
-//                }
-//            }
-//        }
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if (txtSearch.getText().trim().compareTo("") == 0) {
+                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+                model.setRowCount(0);
+
+                List<Account> accounts = AccountController.getAllAccount();
+
+                int stt = 0;
+                for (int i = 0; i < accounts.size(); i++) {
+                    Account account = accounts.get(i);
+                    if (account.getRole_id() != 1) {
+                        stt++;
+                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                    }
+                }
+            } else {
+                DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
+                model.setRowCount(0);
+
+                List<Account> accounts = AccountController.getAccountsLikeUsername(txtSearch.getText());
+
+                int stt = 0;
+                for (int i = 0; i < accounts.size(); i++) {
+                    Account account = accounts.get(i);
+                    if (account.getRole_id() != 1) {
+                        stt++;
+                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_txtSearchKeyPressed
 
     private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
