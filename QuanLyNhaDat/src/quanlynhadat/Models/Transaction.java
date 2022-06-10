@@ -8,56 +8,64 @@ import java.util.Date;
 
 public class Transaction {
 
-    protected String idTransaction;
-    protected Date dateTransaction;
-    protected float unit_price;
-    protected float area;
-    protected String idUser;
+    protected int t_id;
+    protected Date t_date;
+    protected float t_price;
+    protected float t_area;
+    protected int id;
 
     public Transaction() {
     }
 
-    public Transaction(String idTransaction, Date dateTransaction, float unit_price, float area, String idUser) {
-        this.idTransaction = idTransaction;
-        this.dateTransaction = dateTransaction;
-        this.unit_price = unit_price;
-        this.area = area;
-        this.idUser = idUser;
+    public Transaction(int t_id, Date t_date, float t_price, float t_area, int id) {
+        this.t_id = t_id;
+        this.t_date = t_date;
+        this.t_price = t_price;
+        this.t_area = t_area;
+        this.id = id;
     }
 
-    public String getIdTransaction() {
-        return idTransaction;
+    public int getT_id() {
+        return t_id;
     }
 
-    public Date getDateTransaction() {
-        return dateTransaction;
+    public void setT_id(int t_id) {
+        this.t_id = t_id;
     }
 
-    public void setDateTransaction(Date dateTransaction) {
-        this.dateTransaction = dateTransaction;
+    public Date getT_date() {
+        return t_date;
     }
 
-    public float getUnit_price() {
-        return unit_price;
+    public void setT_date(Date t_date) {
+        this.t_date = t_date;
     }
 
-    public void setUnit_price(float unit_price) {
-        this.unit_price = unit_price;
+    public float getT_price() {
+        return t_price;
     }
 
-    public float getArea() {
-        return area;
+    public void setT_price(float t_price) {
+        this.t_price = t_price;
     }
 
-    public void setArea(float area) {
-        this.area = area;
+    public float getT_area() {
+        return t_area;
     }
 
-    public String getIdUser() {
-        return idUser;
+    public void setT_area(float t_area) {
+        this.t_area = t_area;
     }
 
-    public float money() {
-        return unit_price * area;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public float getMoney() {
+        return getT_price() * getT_area();
     }
 }

@@ -10,17 +10,17 @@ import java.util.Date;
  *
  * @author Trung
  */
-public class LandTransaction extends Transaction{
+public class HomeTransaction extends Transaction{
     private String t_type;
 
-    public LandTransaction() {
+    public HomeTransaction() {
     }
 
-    public LandTransaction(String t_type) {
+    public HomeTransaction(String t_type) {
         this.t_type = t_type;
     }
 
-    public LandTransaction(int t_id, Date t_date, float t_price, String t_type, float t_area, int id) {
+    public HomeTransaction(int t_id, Date t_date, float t_price, String t_type, float t_area, int id) {
         super(t_id, t_date, t_price, t_area, id);
         this.t_type = t_type;
     }
