@@ -1,8 +1,8 @@
-package quanlynhadat.csdl;
+package quanlynhadat.Connect;
 
 import java.sql.*;
 
-public class CSDL {
+public class ConnectDB {
     
     public static Connection getConnection() {
         final String url = "jdbc:sqlserver://localhost:1433;databaseName=btl_java_quanlynhadat;encrypt=true;trustServerCertificate=true;user=sa;password=123";
