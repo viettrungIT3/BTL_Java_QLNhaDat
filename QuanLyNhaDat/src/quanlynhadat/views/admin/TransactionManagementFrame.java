@@ -8,13 +8,13 @@ import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Controller.TransactionController;
 import quanlynhadat.Models.Transaction;
 
-public class RevenueManagementFrame extends javax.swing.JDialog {
-
+public class TransactionManagementFrame extends javax.swing.JDialog {
+    
     static List<Transaction> list = new ArrayList();
     DefaultTableModel model = new DefaultTableModel();
     int money = 0;
-
-    public RevenueManagementFrame(java.awt.Frame parent, boolean modal) {
+    
+    public TransactionManagementFrame(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         model = (DefaultTableModel) tableHachToan.getModel();
@@ -46,7 +46,7 @@ public class RevenueManagementFrame extends javax.swing.JDialog {
             txtSum.setText(String.valueOf(money));
         }
     }
-
+    
     private void addYear(String year) {
         int dem = 0;
         for (int i = 0; i < cbYear.getItemCount(); i++) {
@@ -68,7 +68,7 @@ public class RevenueManagementFrame extends javax.swing.JDialog {
             addYear(sdf1.format(list.get(i).getT_date()));
         }
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -222,7 +222,7 @@ public class RevenueManagementFrame extends javax.swing.JDialog {
         System.out.println(cbMonth.getSelectedItem() + " - " + cbMonth.getItemCount());
         System.out.println("Month = " + month + ", Year = " + year);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
+        
         if (month.compareTo(" ") == 0) {
             list = TransactionController.getAllTransactionByYear(year);
         } else {
@@ -253,7 +253,7 @@ public class RevenueManagementFrame extends javax.swing.JDialog {
         String year = (String) cbYear.getSelectedItem();
         System.out.println("Month = " + month + ", Year = " + year);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
+        
         if (month.compareTo(" ") == 0) {
             list = TransactionController.getAllTransactionByYear(year);
         } else {
@@ -274,11 +274,11 @@ public class RevenueManagementFrame extends javax.swing.JDialog {
             txtSum.setText(String.valueOf(money));
         }
     }//GEN-LAST:event_HienThiDLTheoNam
-
+    
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                RevenueManagementFrame dialog = new RevenueManagementFrame(new javax.swing.JFrame(), true);
+                TransactionManagementFrame dialog = new TransactionManagementFrame(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
