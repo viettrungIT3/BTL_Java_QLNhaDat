@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.LandTransactionController;
 import quanlynhadat.Models.Transaction;
@@ -319,33 +320,25 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbGDDatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGDDatMouseClicked
-//        DefaultTableModel tableModel = (DefaultTableModel) tbGDDat.getModel();
-//        Vector<Object> v = (Vector<Object>) tableModel.getDataVector().elementAt(tbGDDat.getSelectedRow());
-//        
-//        Transaction t = LandTransactionController.getTransactionByUser(idUser, );
+        DefaultTableModel tableModel = (DefaultTableModel) tbGDDat.getModel();
+        Vector<Object> v = (Vector<Object>) tableModel.getDataVector().elementAt(tbGDDat.getSelectedRow());
 
-        try {
-            int index = tbGDDat.getSelectedRow();
-            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-            txtMaDG.setText(tbModel.getValueAt(index, 0).toString());
-            Transaction t = LandTransactionController.getTransactionByUser(idUser, Integer.parseInt(txtMaDG.getText()));
-            System.out.println(t.toString());
-            txtDonGia.setText(t.getT_price()+"");
-            txtDienTich.setText(t.getT_area()+"");
-            Date date = new Date(t.getT_date()+"");
-            jdcNgayGD.setDate(date);
-//            txtDonGia.setText(t.getT_price() + "");
-//            String ld = t.getT_type();
-//            if (ld.compareTo("A") == 0) {
-//                cbLoaiDat.setSelectedIndex(0);
-//            } else if (ld.compareTo("B") == 0) {
-//                cbLoaiDat.setSelectedIndex(1);
-//            } else {
-//                cbLoaiDat.setSelectedIndex(2);
-//            }
-//            txtDienTich.setText(t.getT_area() + "");
-        } catch (ParseException ex) {
-//            System.Logger.getLogger(Transaction.class.getName()).log(Level.SEVERE, null, ex);
+        Transaction t = LandTransactionController.getTransactionByUser(idUser, v.get(1).toString());
+        txtMaDG.setText(t.getT_id() + "");
+        txtDonGia.setText(t.getT_price() + "");
+        txtDienTich.setText(t.getT_area() + "");
+        jdcNgayGD.setDate(t.getT_date());
+        String type = t.getT_type();
+        switch (type) {
+            case "A":
+                cbLoaiDat.setSelectedIndex(0);
+                break;
+            case "B":
+                cbLoaiDat.setSelectedIndex(1);
+                break;
+            case "C":
+                cbLoaiDat.setSelectedIndex(2);
+                break;
         }
     }//GEN-LAST:event_tbGDDatMouseClicked
 

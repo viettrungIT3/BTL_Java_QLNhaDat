@@ -63,7 +63,7 @@ public class LandTransactionController {
         return list;
     }
     
-    public static Transaction getTransactionByUser(int idUser, int t_id) {
+    public static Transaction getTransactionByUser(int idUser, String t_id) {
         Transaction trs = null;
 
         try {
