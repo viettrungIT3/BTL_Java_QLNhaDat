@@ -147,9 +147,9 @@ public class TransactionsFrame extends javax.swing.JFrame {
 
     private void btnGDDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDDatActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        LandTransactionFrame dialog = new LandTransactionFrame(this, true);
-//        dialog.setVisible(true);
+        this.dispose();
+        LandTransactionFrame dialog = new LandTransactionFrame();
+        dialog.setVisible(true);
     }//GEN-LAST:event_btnGDDatActionPerformed
 
     private void btnGDNhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDNhaActionPerformed
