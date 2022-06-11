@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.LandTransactionController;
 import quanlynhadat.Models.Transaction;
@@ -374,16 +375,16 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
 //
-//        if (tfMaDG.getText().trim().compareTo("") != 0) {
+//        if (txtMaDG.getText().trim().compareTo("") != 0) {
 //            JOptionPane.showConfirmDialog(null, " Bạn phải nhập mới", "Lỗi thêm giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 //            clearAll();
 //            return;
 //        }
-//        if (tfDonGia.getText().trim().compareTo("") == 0) {
+//        if (txtDonGia.getText().trim().compareTo("") == 0) {
 //            JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 //            return;
 //        }
-//        if (tfDienTich.getText().trim().compareTo("") == 0) {
+//        if (txtDienTich.getText().trim().compareTo("") == 0) {
 //            JOptionPane.showConfirmDialog(null, "Dien tich khong duoc de trong", "Loi them moi", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 //            return;
 //        }
@@ -392,9 +393,9 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 //            String ma = "GDD" + c;
 //            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //            String ngay = sdf.format(jdcNgayGD.getDate());
-//            float dg = Float.parseFloat(tfDonGia.getText());
+//            float dg = Float.parseFloat(txtDonGia.getText());
 //            String ld = cbLoaiDat.getSelectedItem().toString();
-//            float dt = Float.parseFloat(tfDienTich.getText());
+//            float dt = Float.parseFloat(txtDienTich.getText());
 //            float tt = 0;
 //            if (ld.compareTo("A") == 0) {
 //                tt = (float) (dg * dt * 1.5);
@@ -421,24 +422,24 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
 //        try {
-//            if (tfMaDG.getText().trim().compareTo("") == 0) {
+//            if (txtMaDG.getText().trim().compareTo("") == 0) {
 //                JOptionPane.showConfirmDialog(null, " Bạn phải chọn một giao dịch để sửa", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 //                return;
 //            }
-//            if (tfDonGia.getText().trim().compareTo("") == 0) {
+//            if (txtDonGia.getText().trim().compareTo("") == 0) {
 //                JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 //                return;
 //            }
-//            if (tfDienTich.getText().trim().compareTo("") == 0) {
+//            if (txtDienTich.getText().trim().compareTo("") == 0) {
 //                JOptionPane.showConfirmDialog(null, "Diện tích không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
 //                return;
 //            }
-//            String ma = tfMaDG.getText();
+//            String ma = txtMaDG.getText();
 //            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 //            String ngay = sdf.format(jdcNgayGD.getDate());
-//            float dg = Float.parseFloat(tfDonGia.getText());
+//            float dg = Float.parseFloat(txtDonGia.getText());
 //            String ld = cbLoaiDat.getSelectedItem().toString();
-//            float dt = Float.parseFloat(tfDienTich.getText());
+//            float dt = Float.parseFloat(txtDienTich.getText());
 //            float tt = 0;
 //            if (ld.compareTo("A") == 0) {
 //                tt = (float) (dg * dt * 1.5);
@@ -467,35 +468,22 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-//        if (tfMaDG.getText().trim().compareTo("") == 0) {
-//            JOptionPane.showConfirmDialog(null, "Bạn phải chọn một giao dịch để xoá", "Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        String ma = tfMaDG.getText();
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String ngay = sdf.format(jdcNgayGD.getDate());
-//        float dg = Float.parseFloat(tfDonGia.getText());
-//        String ld = cbLoaiDat.getSelectedItem().toString();
-//        float dt = Float.parseFloat(tfDienTich.getText());
-//        float tt = 0;
-//        if (ld.compareTo("A") == 0) {
-//            tt = (float) (dg * dt * 1.5);
-//        } else {
-//            tt = dg * dt;
-//        }
-//        LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
-//        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xoá? ", "Xoá giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//        if (responseConfirm == JOptionPane.YES_OPTION) {
-//            if (!LandTransaction.deleteGDDat(x)) {
-//                JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thất bại", " Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thành công ", "Xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-//            tbModel.setRowCount(0);
-//            showDataFromDBToTable();
-//        }
-//        clearAll();
+        if (txtMaDG.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Bạn phải chọn một giao dịch để xoá", "Xóa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xoá? ", "Xoá giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (responseConfirm == JOptionPane.YES_OPTION) {
+            if (!LandTransactionController.deleteTransaction(idUser, txtMaDG.getText())) {
+                JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thất bại", " Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thành công ", "Xoá giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
+            model.setRowCount(0);
+            formWindowOpened(null);
+        }
+        btnResetActionPerformed(null);
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -524,15 +512,9 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(txtTimKiem.getText().trim()) || txtTimKiem == null) {
-                List<Transaction> transactions = List.copyOf(LandTransactionController.getAllTransactionByUser(idUser));
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
-                model.getDataVector().removeAllElements();
-                model.fireTableDataChanged();
-                for (int i = 0; i < transactions.size(); i++) {
-                    Transaction t = transactions.get(i);
-                    model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
-                }
+                model.setRowCount(0);
+                formWindowOpened(null);
             } else {
                 Transaction t = LandTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");

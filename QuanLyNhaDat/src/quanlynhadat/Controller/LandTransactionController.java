@@ -5,7 +5,9 @@
 package quanlynhadat.Controller;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,7 +70,7 @@ public class LandTransactionController {
 
         try {
             Connection conn = ConnectDB.getConnection();
-            String sqlland = "SELECT * FROM LAND_TRANSACTIONS where id='" + idUser + "' AND  t_id = '" + t_id + "'";
+            String sqlland = "SELECT * FROM LAND_TRANSACTIONS WHERE id='" + idUser + "' AND  t_id = '" + t_id + "'";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sqlland);
             while (rs.next()) {
@@ -84,5 +86,23 @@ public class LandTransactionController {
             e.printStackTrace();
         }
         return null;
+    }
+    
+    public static boolean deleteTransaction(int idUser, String t_id) {
+        String sqlDeleteUser = "DELETE FROM LAND_TRANSACTIONS WHERE id='" + idUser + "' AND  t_id = '" + t_id + "'";
+        try {
+
+            Connection conn = ConnectDB.getConnection();
+            PreparedStatement p = conn.prepareStatement(sqlDeleteUser);
+
+            p.execute();
+            p.close();
+            conn.close();
+            return true;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
     }
 }
