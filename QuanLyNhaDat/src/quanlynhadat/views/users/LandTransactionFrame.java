@@ -1,5 +1,6 @@
 package quanlynhadat.views.users;
 
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,7 +59,7 @@ public class LandTransactionFrame extends javax.swing.JFrame {
         btnSua = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        tfTimKiem = new javax.swing.JTextField();
+        txtTimKiem = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         cbLoaiDat = new javax.swing.JComboBox<>();
 
@@ -175,6 +176,17 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
         jLabel5.setText("Tìm kiếm theo mã giao dịch:");
 
+        txtTimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTimKiemActionPerformed(evt);
+            }
+        });
+        txtTimKiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTimKiemKeyPressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -191,7 +203,7 @@ public class LandTransactionFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addGap(18, 18, 18)
-                .addComponent(tfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(51, 51, 51))
         );
         jPanel3Layout.setVerticalGroup(
@@ -204,7 +216,7 @@ public class LandTransactionFrame extends javax.swing.JFrame {
                     .addComponent(btnSua)
                     .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5)
-                    .addComponent(tfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -497,11 +509,40 @@ public class LandTransactionFrame extends javax.swing.JFrame {
         List<Transaction> transactions = List.copyOf(LandTransactionController.getAllTransactionByUser(idUser));
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
+        model.getDataVector().removeAllElements();
+        model.fireTableDataChanged();
         for (int i = 0; i < transactions.size(); i++) {
             Transaction t = transactions.get(i);
             model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
         }
     }//GEN-LAST:event_formWindowOpened
+
+    private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed
+
+    }//GEN-LAST:event_txtTimKiemActionPerformed
+
+    private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            if ("".equals(txtTimKiem.getText().trim()) || txtTimKiem == null) {
+                List<Transaction> transactions = List.copyOf(LandTransactionController.getAllTransactionByUser(idUser));
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
+                model.getDataVector().removeAllElements();
+                model.fireTableDataChanged();
+                for (int i = 0; i < transactions.size(); i++) {
+                    Transaction t = transactions.get(i);
+                    model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+                }
+            } else {
+                Transaction t = LandTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
+                model.getDataVector().removeAllElements();
+                model.fireTableDataChanged();
+                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+            }
+        }
+    }//GEN-LAST:event_txtTimKiemKeyPressed
 
     /**
      * @param args the command line arguments
@@ -517,16 +558,24 @@ public class LandTransactionFrame extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LandTransactionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandTransactionFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LandTransactionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandTransactionFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LandTransactionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandTransactionFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LandTransactionFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LandTransactionFrame.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -560,9 +609,9 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private com.toedter.calendar.JDateChooser jdcNgayGD;
     private javax.swing.JTable tbGDDat;
-    private javax.swing.JTextField tfTimKiem;
     private javax.swing.JTextField txtDienTich;
     private javax.swing.JTextField txtDonGia;
     private javax.swing.JTextField txtMaDG;
+    private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }
