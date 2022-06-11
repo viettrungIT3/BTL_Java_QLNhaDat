@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import quanlynhadat.views.Login;
 
 /**
  *
@@ -99,6 +100,11 @@ public class LandTransactionFrame extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 0, 51));
         jButton2.setText("Đăng xuất");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -304,26 +310,26 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tbGDDatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGDDatMouseClicked
-        try {
-            // TODO add your handling code here:
-            int index = tbGDDat.getSelectedRow();
-            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-            tfMaDG.setText(tbModel.getValueAt(index, 0).toString());
-            java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String) tbModel.getValueAt(index, 1));
-            jdcNgayGD.setDate(date);
-            tfDonGia.setText(tbModel.getValueAt(index, 2).toString());
-            String ld = tbModel.getValueAt(index, 3).toString();
-            if (ld.compareTo("A") == 0) {
-                cbLoaiDat.setSelectedIndex(0);
-            } else if (ld.compareTo("B") == 0) {
-                cbLoaiDat.setSelectedIndex(1);
-            } else {
-                cbLoaiDat.setSelectedIndex(2);
-            }
-            tfDienTich.setText(tbModel.getValueAt(index, 4).toString());
-        } catch (ParseException ex) {
-            Logger.getLogger(QLGiaoDichDat.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            // TODO add your handling code here:
+//            int index = tbGDDat.getSelectedRow();
+//            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//            tfMaDG.setText(tbModel.getValueAt(index, 0).toString());
+//            java.util.Date date = new SimpleDateFormat("yyyy-MM-dd").parse((String) tbModel.getValueAt(index, 1));
+//            jdcNgayGD.setDate(date);
+//            tfDonGia.setText(tbModel.getValueAt(index, 2).toString());
+//            String ld = tbModel.getValueAt(index, 3).toString();
+//            if (ld.compareTo("A") == 0) {
+//                cbLoaiDat.setSelectedIndex(0);
+//            } else if (ld.compareTo("B") == 0) {
+//                cbLoaiDat.setSelectedIndex(1);
+//            } else {
+//                cbLoaiDat.setSelectedIndex(2);
+//            }
+//            tfDienTich.setText(tbModel.getValueAt(index, 4).toString());
+//        } catch (ParseException ex) {
+//            Logger.getLogger(QLGiaoDichDat.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_tbGDDatMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -342,130 +348,136 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-
-        if (tfMaDG.getText().trim().compareTo("") != 0) {
-            JOptionPane.showConfirmDialog(null, " Bạn phải nhập mới", "Lỗi thêm giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-            clearAll();
-            return;
-        }
-        if (tfDonGia.getText().trim().compareTo("") == 0) {
-            JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        if (tfDienTich.getText().trim().compareTo("") == 0) {
-            JOptionPane.showConfirmDialog(null, "Dien tich khong duoc de trong", "Loi them moi", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        try {
-            int c = LandTransactionFrame.cnt++;
-            String ma = "GDD" + c;
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String ngay = sdf.format(jdcNgayGD.getDate());
-            float dg = Float.parseFloat(tfDonGia.getText());
-            String ld = cbLoaiDat.getSelectedItem().toString();
-            float dt = Float.parseFloat(tfDienTich.getText());
-            float tt = 0;
-            if (ld.compareTo("A") == 0) {
-                tt = (float) (dg * dt * 1.5);
-            } else {
-                tt = dg * dt;
-            }
-            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
-            listDat.add(x);
-            try ( PreparedStatement pst = LandTransaction.addNewGDDDat(x)) {
-                pst.executeUpdate();
-            }
-            ConnectDB.getConnection().close();
-            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-            tbModel.setRowCount(0);
-            showDataFromDBToTable();
-
-        } catch (NumberFormatException | SQLException ex) {
-            JOptionPane.showConfirmDialog(null, "Xảy ra lỗi " + ex.getMessage(), " Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        clearAll();
+//
+//        if (tfMaDG.getText().trim().compareTo("") != 0) {
+//            JOptionPane.showConfirmDialog(null, " Bạn phải nhập mới", "Lỗi thêm giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            clearAll();
+//            return;
+//        }
+//        if (tfDonGia.getText().trim().compareTo("") == 0) {
+//            JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        if (tfDienTich.getText().trim().compareTo("") == 0) {
+//            JOptionPane.showConfirmDialog(null, "Dien tich khong duoc de trong", "Loi them moi", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        try {
+//            int c = LandTransactionFrame.cnt++;
+//            String ma = "GDD" + c;
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            String ngay = sdf.format(jdcNgayGD.getDate());
+//            float dg = Float.parseFloat(tfDonGia.getText());
+//            String ld = cbLoaiDat.getSelectedItem().toString();
+//            float dt = Float.parseFloat(tfDienTich.getText());
+//            float tt = 0;
+//            if (ld.compareTo("A") == 0) {
+//                tt = (float) (dg * dt * 1.5);
+//            } else {
+//                tt = dg * dt;
+//            }
+//            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
+//            listDat.add(x);
+//            try ( PreparedStatement pst = LandTransaction.addNewGDDDat(x)) {
+//                pst.executeUpdate();
+//            }
+//            ConnectDB.getConnection().close();
+//            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//            tbModel.setRowCount(0);
+//            showDataFromDBToTable();
+//
+//        } catch (NumberFormatException | SQLException ex) {
+//            JOptionPane.showConfirmDialog(null, "Xảy ra lỗi " + ex.getMessage(), " Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        clearAll();
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
         // TODO add your handling code here:
-        try {
-            if (tfMaDG.getText().trim().compareTo("") == 0) {
-                JOptionPane.showConfirmDialog(null, " Bạn phải chọn một giao dịch để sửa", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (tfDonGia.getText().trim().compareTo("") == 0) {
-                JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            if (tfDienTich.getText().trim().compareTo("") == 0) {
-                JOptionPane.showConfirmDialog(null, "Diện tích không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            String ma = tfMaDG.getText();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String ngay = sdf.format(jdcNgayGD.getDate());
-            float dg = Float.parseFloat(tfDonGia.getText());
-            String ld = cbLoaiDat.getSelectedItem().toString();
-            float dt = Float.parseFloat(tfDienTich.getText());
-            float tt = 0;
-            if (ld.compareTo("A") == 0) {
-                tt = (float) (dg * dt * 1.5);
-            } else {
-                tt = dg * dt;
-            }
-            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
-
-            int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (responseConfirm == JOptionPane.YES_OPTION) {
-                if (!LandTransaction.updateGDDat(x)) {
-                    JOptionPane.showConfirmDialog(null, "Sửa giao dịch đất thất bại", "Lỗi sửa giao dịch thất bại", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-                JOptionPane.showConfirmDialog(null, "Sửa giao dịch thành công", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-                tbModel.setRowCount(0);
-                showDataFromDBToTable();
-            }
-        } catch (NumberFormatException ex1) {
-            JOptionPane.showConfirmDialog(null, "Bạn phải nhập đúng định dạng", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-
-        }
-        clearAll();
+//        try {
+//            if (tfMaDG.getText().trim().compareTo("") == 0) {
+//                JOptionPane.showConfirmDialog(null, " Bạn phải chọn một giao dịch để sửa", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            if (tfDonGia.getText().trim().compareTo("") == 0) {
+//                JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            if (tfDienTich.getText().trim().compareTo("") == 0) {
+//                JOptionPane.showConfirmDialog(null, "Diện tích không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            String ma = tfMaDG.getText();
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            String ngay = sdf.format(jdcNgayGD.getDate());
+//            float dg = Float.parseFloat(tfDonGia.getText());
+//            String ld = cbLoaiDat.getSelectedItem().toString();
+//            float dt = Float.parseFloat(tfDienTich.getText());
+//            float tt = 0;
+//            if (ld.compareTo("A") == 0) {
+//                tt = (float) (dg * dt * 1.5);
+//            } else {
+//                tt = dg * dt;
+//            }
+//            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
+//
+//            int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (responseConfirm == JOptionPane.YES_OPTION) {
+//                if (!LandTransaction.updateGDDat(x)) {
+//                    JOptionPane.showConfirmDialog(null, "Sửa giao dịch đất thất bại", "Lỗi sửa giao dịch thất bại", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                    return;
+//                }
+//                JOptionPane.showConfirmDialog(null, "Sửa giao dịch thành công", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+//                DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//                tbModel.setRowCount(0);
+//                showDataFromDBToTable();
+//            }
+//        } catch (NumberFormatException ex1) {
+//            JOptionPane.showConfirmDialog(null, "Bạn phải nhập đúng định dạng", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//
+//        }
+//        clearAll();
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
         // TODO add your handling code here:
-        if (tfMaDG.getText().trim().compareTo("") == 0) {
-            JOptionPane.showConfirmDialog(null, "Bạn phải chọn một giao dịch để xoá", "Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        String ma = tfMaDG.getText();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String ngay = sdf.format(jdcNgayGD.getDate());
-        float dg = Float.parseFloat(tfDonGia.getText());
-        String ld = cbLoaiDat.getSelectedItem().toString();
-        float dt = Float.parseFloat(tfDienTich.getText());
-        float tt = 0;
-        if (ld.compareTo("A") == 0) {
-            tt = (float) (dg * dt * 1.5);
-        } else {
-            tt = dg * dt;
-        }
-        LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
-        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xoá? ", "Xoá giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (responseConfirm == JOptionPane.YES_OPTION) {
-            if (!LandTransaction.deleteGDDat(x)) {
-                JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thất bại", " Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thành công ", "Xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-            tbModel.setRowCount(0);
-            showDataFromDBToTable();
-        }
-        clearAll();
+//        if (tfMaDG.getText().trim().compareTo("") == 0) {
+//            JOptionPane.showConfirmDialog(null, "Bạn phải chọn một giao dịch để xoá", "Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        String ma = tfMaDG.getText();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        String ngay = sdf.format(jdcNgayGD.getDate());
+//        float dg = Float.parseFloat(tfDonGia.getText());
+//        String ld = cbLoaiDat.getSelectedItem().toString();
+//        float dt = Float.parseFloat(tfDienTich.getText());
+//        float tt = 0;
+//        if (ld.compareTo("A") == 0) {
+//            tt = (float) (dg * dt * 1.5);
+//        } else {
+//            tt = dg * dt;
+//        }
+//        LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
+//        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xoá? ", "Xoá giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//        if (responseConfirm == JOptionPane.YES_OPTION) {
+//            if (!LandTransaction.deleteGDDat(x)) {
+//                JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thất bại", " Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thành công ", "Xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+//            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//            tbModel.setRowCount(0);
+//            showDataFromDBToTable();
+//        }
+//        clearAll();
     }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        this.dispose();
+        Login dialog = new Login();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
