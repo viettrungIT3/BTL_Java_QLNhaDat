@@ -353,7 +353,11 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDonGiaActionPerformed
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
+        txtMaDG.setText("");
+        txtDonGia.setText("");
+        txtDienTich.setText("");
+        jdcNgayGD.setDate(new Date());
+        cbLoaiDat.setSelectedIndex(0);
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
