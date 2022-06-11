@@ -1,20 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package quanlynhadat.views.users;
 
-/**
- *
- * @author Trung
- */
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.table.DefaultTableModel;
+import quanlynhadat.Controller.LandTransactionController;
+import quanlynhadat.Models.Transaction;
+import quanlynhadat.views.Login;
+
 public class LandTransactionFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form LandTransactionFrame
      */
+    int idUser;
+
     public LandTransactionFrame() {
         initComponents();
+        idUser = 2;
+    }
+
+    public LandTransactionFrame(int id) {
+        initComponents();
+        idUser = id;
     }
 
     /**
@@ -26,23 +36,468 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbGDDat = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        btnLogout = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        txtMaDG = new javax.swing.JTextField();
+        txtDonGia = new javax.swing.JTextField();
+        txtDienTich = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jdcNgayGD = new com.toedter.calendar.JDateChooser();
+        jPanel3 = new javax.swing.JPanel();
+        btnReset = new javax.swing.JButton();
+        btnThem = new javax.swing.JButton();
+        btnSua = new javax.swing.JButton();
+        btnXoa = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        tfTimKiem = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        cbLoaiDat = new javax.swing.JComboBox<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ ĐẤT");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
+
+        tbGDDat.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "STT", "Mã giao dịch", "Ngày giao dịch", "Ðơn giá", "Loại đất", "Diện tích", "Thành tiền"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbGDDat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbGDDatMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tbGDDat);
+        if (tbGDDat.getColumnModel().getColumnCount() > 0) {
+            tbGDDat.getColumnModel().getColumn(0).setMinWidth(50);
+            tbGDDat.getColumnModel().getColumn(0).setPreferredWidth(50);
+            tbGDDat.getColumnModel().getColumn(0).setMaxWidth(50);
+        }
+
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
+
+        btnBack.setText("Quay lại Menu");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Quản lý giao dịch đất");
+
+        btnLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLogout.setForeground(new java.awt.Color(255, 0, 51));
+        btnLogout.setText("Đăng xuất");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Mã giao dịch: ");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Ngày giao dịch:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Ðơn giá:");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel6.setText("Diện tích:");
+
+        txtMaDG.setEnabled(false);
+
+        txtDonGia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDonGiaActionPerformed(evt);
+            }
+        });
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResetActionPerformed(evt);
+            }
+        });
+
+        btnThem.setText("Thêm mới");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
+
+        btnSua.setText("Sửa");
+        btnSua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSuaActionPerformed(evt);
+            }
+        });
+
+        btnXoa.setText("Xoá");
+        btnXoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Tìm kiếm theo mã giao dịch:");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnReset)
+                .addGap(18, 18, 18)
+                .addComponent(btnThem)
+                .addGap(18, 18, 18)
+                .addComponent(btnSua)
+                .addGap(18, 18, 18)
+                .addComponent(btnXoa)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
+                .addComponent(tfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnReset)
+                    .addComponent(btnThem)
+                    .addComponent(btnSua)
+                    .addComponent(btnXoa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel5)
+                    .addComponent(tfTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel7.setText("Loại đất:");
+
+        cbLoaiDat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C" }));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSeparator2)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel4))
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDonGia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDienTich, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtMaDG, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jdcNgayGD, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                    .addComponent(cbLoaiDat, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(104, 104, 104))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtMaDG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLabel3)
+                    .addComponent(jdcNgayGD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(cbLoaiDat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtDienTich, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addGap(9, 9, 9)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnBack)
+                        .addGap(214, 214, 214)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(234, 234, 234)
+                        .addComponent(btnLogout))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBack)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLogout))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tbGDDatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbGDDatMouseClicked
+        DefaultTableModel tableModel = (DefaultTableModel) tbGDDat.getModel();
+        Vector<Object> v = (Vector<Object>) tableModel.getDataVector().elementAt(tbGDDat.getSelectedRow());
+
+        Transaction t = LandTransactionController.getTransactionByUser(idUser, v.get(1).toString());
+        txtMaDG.setText(t.getT_id() + "");
+        txtDonGia.setText(t.getT_price() + "");
+        txtDienTich.setText(t.getT_area() + "");
+        jdcNgayGD.setDate(t.getT_date());
+        String type = t.getT_type();
+        switch (type) {
+            case "A":
+                cbLoaiDat.setSelectedIndex(0);
+                break;
+            case "B":
+                cbLoaiDat.setSelectedIndex(1);
+                break;
+            case "C":
+                cbLoaiDat.setSelectedIndex(2);
+                break;
+        }
+    }//GEN-LAST:event_tbGDDatMouseClicked
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        this.dispose();
+        TransactionsFrame dialog = new TransactionsFrame();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void txtDonGiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDonGiaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDonGiaActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+//
+//        if (tfMaDG.getText().trim().compareTo("") != 0) {
+//            JOptionPane.showConfirmDialog(null, " Bạn phải nhập mới", "Lỗi thêm giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            clearAll();
+//            return;
+//        }
+//        if (tfDonGia.getText().trim().compareTo("") == 0) {
+//            JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        if (tfDienTich.getText().trim().compareTo("") == 0) {
+//            JOptionPane.showConfirmDialog(null, "Dien tich khong duoc de trong", "Loi them moi", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        try {
+//            int c = LandTransactionFrame.cnt++;
+//            String ma = "GDD" + c;
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            String ngay = sdf.format(jdcNgayGD.getDate());
+//            float dg = Float.parseFloat(tfDonGia.getText());
+//            String ld = cbLoaiDat.getSelectedItem().toString();
+//            float dt = Float.parseFloat(tfDienTich.getText());
+//            float tt = 0;
+//            if (ld.compareTo("A") == 0) {
+//                tt = (float) (dg * dt * 1.5);
+//            } else {
+//                tt = dg * dt;
+//            }
+//            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
+//            listDat.add(x);
+//            try ( PreparedStatement pst = LandTransaction.addNewGDDDat(x)) {
+//                pst.executeUpdate();
+//            }
+//            ConnectDB.getConnection().close();
+//            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//            tbModel.setRowCount(0);
+//            showDataFromDBToTable();
+//
+//        } catch (NumberFormatException | SQLException ex) {
+//            JOptionPane.showConfirmDialog(null, "Xảy ra lỗi " + ex.getMessage(), " Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        clearAll();
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
+        // TODO add your handling code here:
+//        try {
+//            if (tfMaDG.getText().trim().compareTo("") == 0) {
+//                JOptionPane.showConfirmDialog(null, " Bạn phải chọn một giao dịch để sửa", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            if (tfDonGia.getText().trim().compareTo("") == 0) {
+//                JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            if (tfDienTich.getText().trim().compareTo("") == 0) {
+//                JOptionPane.showConfirmDialog(null, "Diện tích không được để trống", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            String ma = tfMaDG.getText();
+//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//            String ngay = sdf.format(jdcNgayGD.getDate());
+//            float dg = Float.parseFloat(tfDonGia.getText());
+//            String ld = cbLoaiDat.getSelectedItem().toString();
+//            float dt = Float.parseFloat(tfDienTich.getText());
+//            float tt = 0;
+//            if (ld.compareTo("A") == 0) {
+//                tt = (float) (dg * dt * 1.5);
+//            } else {
+//                tt = dg * dt;
+//            }
+//            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
+//
+//            int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//            if (responseConfirm == JOptionPane.YES_OPTION) {
+//                if (!LandTransaction.updateGDDat(x)) {
+//                    JOptionPane.showConfirmDialog(null, "Sửa giao dịch đất thất bại", "Lỗi sửa giao dịch thất bại", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                    return;
+//                }
+//                JOptionPane.showConfirmDialog(null, "Sửa giao dịch thành công", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+//                DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//                tbModel.setRowCount(0);
+//                showDataFromDBToTable();
+//            }
+//        } catch (NumberFormatException ex1) {
+//            JOptionPane.showConfirmDialog(null, "Bạn phải nhập đúng định dạng", "Lỗi sửa giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//
+//        }
+//        clearAll();
+    }//GEN-LAST:event_btnSuaActionPerformed
+
+    private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
+        // TODO add your handling code here:
+//        if (tfMaDG.getText().trim().compareTo("") == 0) {
+//            JOptionPane.showConfirmDialog(null, "Bạn phải chọn một giao dịch để xoá", "Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//            return;
+//        }
+//        String ma = tfMaDG.getText();
+//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+//        String ngay = sdf.format(jdcNgayGD.getDate());
+//        float dg = Float.parseFloat(tfDonGia.getText());
+//        String ld = cbLoaiDat.getSelectedItem().toString();
+//        float dt = Float.parseFloat(tfDienTich.getText());
+//        float tt = 0;
+//        if (ld.compareTo("A") == 0) {
+//            tt = (float) (dg * dt * 1.5);
+//        } else {
+//            tt = dg * dt;
+//        }
+//        LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
+//        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xoá? ", "Xoá giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+//        if (responseConfirm == JOptionPane.YES_OPTION) {
+//            if (!LandTransaction.deleteGDDat(x)) {
+//                JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thất bại", " Lỗi xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+//                return;
+//            }
+//            JOptionPane.showConfirmDialog(null, "Xoá giao dịch đất thành công ", "Xoá giao dịch đất", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+//            DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
+//            tbModel.setRowCount(0);
+//            showDataFromDBToTable();
+//        }
+//        clearAll();
+    }//GEN-LAST:event_btnXoaActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        this.dispose();
+        Login dialog = new Login();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_btnLogoutActionPerformed
+
+    // Hiển thị dữ liệu cho Bảng
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        List<Transaction> transactions = List.copyOf(LandTransactionController.getAllTransactionByUser(idUser));
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
+        for (int i = 0; i < transactions.size(); i++) {
+            Transaction t = transactions.get(i);
+            model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -80,5 +535,30 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnLogout;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JButton btnSua;
+    private javax.swing.JButton btnThem;
+    private javax.swing.JButton btnXoa;
+    private javax.swing.JComboBox<String> cbLoaiDat;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSeparator jSeparator2;
+    private com.toedter.calendar.JDateChooser jdcNgayGD;
+    private javax.swing.JTable tbGDDat;
+    private javax.swing.JTextField tfTimKiem;
+    private javax.swing.JTextField txtDienTich;
+    private javax.swing.JTextField txtDonGia;
+    private javax.swing.JTextField txtMaDG;
     // End of variables declaration//GEN-END:variables
 }

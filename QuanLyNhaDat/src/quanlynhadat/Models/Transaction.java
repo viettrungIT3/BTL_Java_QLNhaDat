@@ -81,4 +81,11 @@ public class Transaction {
     public float getMoney() {
         return getT_price() * getT_area();
     }
+
+    @Override
+    public String toString() {
+        return "Transaction{" + "t_id=" + t_id + ", t_date=" + t_date + ", t_price=" + t_price + ", t_type=" + t_type + ", t_area=" + t_area + ", id=" + id + ", type=" + type + '}';
+    }
+    
+    
 }

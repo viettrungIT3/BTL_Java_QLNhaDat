@@ -13,8 +13,18 @@ public class TransactionsFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    
+    int idUser;
+    
     public TransactionsFrame() {
         initComponents();
+        System.out.println("id = " + idUser);
+    }
+    
+    public TransactionsFrame(int id) {
+        initComponents();
+        idUser = id;
+        System.out.println("id = " + idUser);
     }
 
     /**
@@ -147,9 +157,9 @@ public class TransactionsFrame extends javax.swing.JFrame {
 
     private void btnGDDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDDatActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        LandTransactionFrame dialog = new LandTransactionFrame(this, true);
-//        dialog.setVisible(true);
+        this.dispose();
+        LandTransactionFrame dialog = new LandTransactionFrame(idUser);
+        dialog.setVisible(true);
     }//GEN-LAST:event_btnGDDatActionPerformed
 
     private void btnGDNhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDNhaActionPerformed
