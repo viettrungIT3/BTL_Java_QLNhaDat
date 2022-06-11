@@ -19,6 +19,16 @@ public class Transaction {
     public Transaction() {
     }
 
+    public Transaction(Date t_date, float t_price, String t_type, float t_area, int id) {
+        this.t_date = t_date;
+        this.t_price = t_price;
+        this.t_type = t_type;
+        this.t_area = t_area;
+        this.id = id;
+    }
+    
+    
+
     public Transaction(int t_id, Date t_date, float t_price, String t_type, float t_area, int id, int type) {
         this.t_id = t_id;
         this.t_date = t_date;
