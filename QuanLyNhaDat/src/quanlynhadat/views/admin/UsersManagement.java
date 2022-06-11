@@ -350,7 +350,10 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_tbUserMouseClicked
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        // TODO add your handling code here:
+        if (txtId.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Chưa có nhân viên nào được chọn!", "Cảnh báo", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         if (txtName.getText().trim().compareTo("") == 0) {
             JOptionPane.showConfirmDialog(null, "Họ tên không được để trống", "Sửa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
@@ -389,7 +392,10 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-
+        if (txtId.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Chưa có nhân viên nào được chọn!", "Cảnh báo", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (responseConfirm == JOptionPane.YES_OPTION) {
             if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()))) {
@@ -470,6 +476,10 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_btnImportActionPerformed
 
     private void btnShowTransactionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowTransactionsActionPerformed
+        if (txtId.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Chưa có nhân viên nào được chọn!", "Cảnh báo", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
         this.dispose();
         TransactionsByUserFrame frame = new TransactionsByUserFrame(new javax.swing.JFrame(), true, txtId.getText());
         frame.setVisible(true);
