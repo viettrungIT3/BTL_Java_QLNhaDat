@@ -196,16 +196,21 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#x1ea5;t c&#x1ea3; doanh thu"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch giao d&#x1ecb;ch &#x111;&#x1ea5;t"/>
+                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch giao d&#x1ecb;ch nh&#xe0;"/>
+                <Property name="enabled" type="boolean" value="false"/>
+                <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
           </SubComponents>

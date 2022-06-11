@@ -249,13 +249,20 @@ public class AdminScreenMain extends javax.swing.JFrame {
         jMenu4.setText("Doanh thu");
 
         jMenuItem3.setText("Tất cả doanh thu");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem3);
 
         jMenuItem5.setText("Danh sách giao dịch đất");
+        jMenuItem5.setEnabled(false);
         jMenu4.add(jMenuItem5);
 
-        jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("Danh sách giao dịch nhà");
+        jCheckBoxMenuItem1.setEnabled(false);
+        jCheckBoxMenuItem1.setRequestFocusEnabled(false);
         jMenu4.add(jCheckBoxMenuItem1);
 
         jMenuBar1.add(jMenu4);
@@ -387,6 +394,12 @@ public class AdminScreenMain extends javax.swing.JFrame {
         addUserFrame.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        TransactionManagementFrame transactionManagementFrame = new TransactionManagementFrame(this, true);
+        transactionManagementFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
