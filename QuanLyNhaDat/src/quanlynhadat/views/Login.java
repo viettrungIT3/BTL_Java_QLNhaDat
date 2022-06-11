@@ -10,6 +10,7 @@ import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Controller.AccountFileController;
 import quanlynhadat.Models.Account;
 import quanlynhadat.views.admin.AdminScreenMain;
+import quanlynhadat.views.users.TransactionsFrame;
 
 /**
  *
@@ -145,6 +146,9 @@ public class Login extends javax.swing.JFrame {
                     adminScreenMain.setVisible(true);
                 }else {
                     JOptionPane.showMessageDialog(null, "Đăng nhập tk user thành công!");
+                    int id = acc.getId();
+                    TransactionsFrame transactionsFrame = new TransactionsFrame(id);
+                    transactionsFrame.setVisible(true);
                 }
                 this.dispose();
             } else {

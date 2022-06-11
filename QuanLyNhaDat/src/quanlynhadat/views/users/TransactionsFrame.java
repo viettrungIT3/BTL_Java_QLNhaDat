@@ -13,8 +13,18 @@ public class TransactionsFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    
+    int idUser;
+    
     public TransactionsFrame() {
         initComponents();
+        System.out.println("id = " + idUser);
+    }
+    
+    public TransactionsFrame(int id) {
+        initComponents();
+        idUser = id;
+        System.out.println("id = " + idUser);
     }
 
     /**
