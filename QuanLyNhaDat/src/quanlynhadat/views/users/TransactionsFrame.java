@@ -4,6 +4,8 @@
  */
 package quanlynhadat.views.users;
 
+import quanlynhadat.views.Login;
+
 /**
  *
  * @author Trung
@@ -13,14 +15,13 @@ public class TransactionsFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    
     int idUser;
-    
+
     public TransactionsFrame() {
         initComponents();
         System.out.println("id = " + idUser);
     }
-    
+
     public TransactionsFrame(int id) {
         initComponents();
         idUser = id;
@@ -79,6 +80,11 @@ public class TransactionsFrame extends javax.swing.JFrame {
         btnDangXuat.setForeground(new java.awt.Color(255, 0, 0));
         btnDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/Login-icon-16.png"))); // NOI18N
         btnDangXuat.setText("Đăng xuất");
+        btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangXuatActionPerformed(evt);
+            }
+        });
 
         btnThoat.setForeground(new java.awt.Color(255, 0, 0));
         btnThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/Button-Close-icon-16.png"))); // NOI18N
@@ -157,16 +163,20 @@ public class TransactionsFrame extends javax.swing.JFrame {
 
     private void btnGDDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDDatActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        LandTransactionFrame dialog = new LandTransactionFrame(idUser);
-        dialog.setVisible(true);
+        if (idUser != 0) {
+            this.dispose();
+            LandTransactionFrame dialog = new LandTransactionFrame(idUser);
+            dialog.setVisible(true);
+        }
     }//GEN-LAST:event_btnGDDatActionPerformed
 
     private void btnGDNhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDNhaActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        HomeTransactionFrame dialog = new HomeTransactionFrame();
-//        dialog.setVisible(true);
+        if (idUser != 0) {
+            this.dispose();
+            HomeTransactionFrame dialog = new HomeTransactionFrame(idUser);
+            dialog.setVisible(true);
+        }
 
     }//GEN-LAST:event_btnGDNhaActionPerformed
 
@@ -175,6 +185,12 @@ public class TransactionsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
+        this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnDangXuatActionPerformed
 
     /**
      * @param args the command line arguments

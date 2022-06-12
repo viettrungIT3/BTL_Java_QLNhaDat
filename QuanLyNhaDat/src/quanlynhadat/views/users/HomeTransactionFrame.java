@@ -20,7 +20,6 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
 
     public HomeTransactionFrame() {
         initComponents();
-        idUser = 2;
     }
 
     public HomeTransactionFrame(int id) {
@@ -353,7 +352,7 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();
-        TransactionsFrame dialog = new TransactionsFrame();
+        TransactionsFrame dialog = new TransactionsFrame(idUser);
         dialog.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 

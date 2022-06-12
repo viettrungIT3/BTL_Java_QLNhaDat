@@ -20,7 +20,6 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
     public LandTransactionFrame() {
         initComponents();
-        idUser = 2;
     }
 
     public LandTransactionFrame(int id) {
@@ -356,7 +355,7 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();
-        TransactionsFrame dialog = new TransactionsFrame();
+        TransactionsFrame dialog = new TransactionsFrame(idUser);
         dialog.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
