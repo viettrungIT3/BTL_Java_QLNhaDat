@@ -202,13 +202,13 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch giao d&#x1ecb;ch &#x111;&#x1ea5;t"/>
+                <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch &#x111;&#x1ea5;t"/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch giao d&#x1ecb;ch nh&#xe0;"/>
+                <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch nh&#xe0;"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>

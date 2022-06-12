@@ -256,11 +256,11 @@ public class AdminScreenMain extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem3);
 
-        jMenuItem5.setText("Danh sách giao dịch đất");
+        jMenuItem5.setText("Từ giao dịch đất");
         jMenuItem5.setEnabled(false);
         jMenu4.add(jMenuItem5);
 
-        jCheckBoxMenuItem1.setText("Danh sách giao dịch nhà");
+        jCheckBoxMenuItem1.setText("Từ giao dịch nhà");
         jCheckBoxMenuItem1.setEnabled(false);
         jCheckBoxMenuItem1.setRequestFocusEnabled(false);
         jMenu4.add(jCheckBoxMenuItem1);

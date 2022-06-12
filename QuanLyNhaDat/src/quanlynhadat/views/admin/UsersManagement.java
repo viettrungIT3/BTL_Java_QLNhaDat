@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Controller.AccountFileController;
 import quanlynhadat.Models.Account;
+import quanlynhadat.views.Login;
 
 public class UsersManagement extends javax.swing.JFrame {
 
@@ -46,11 +47,27 @@ public class UsersManagement extends javax.swing.JFrame {
         txtSearch = new javax.swing.JTextField();
         btnExport = new javax.swing.JButton();
         btnImport = new javax.swing.JButton();
+        btnShowTransactions = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lbStatusCaps = new javax.swing.JLabel();
         lbDate = new javax.swing.JLabel();
         lbTime = new javax.swing.JLabel();
-        btnShowTransactions = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        miNew = new javax.swing.JMenuItem();
+        miOpen = new javax.swing.JMenuItem();
+        miSave = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        miExit = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("QUẢN LÝ NHÂN VIÊN");
@@ -177,6 +194,13 @@ public class UsersManagement extends javax.swing.JFrame {
             }
         });
 
+        btnShowTransactions.setText("Xem giao dịch đã thực hiện");
+        btnShowTransactions.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowTransactionsActionPerformed(evt);
+            }
+        });
+
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         lbStatusCaps.setText("CAPS");
@@ -191,8 +215,7 @@ public class UsersManagement extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(lbDate)
                 .addGap(29, 29, 29)
-                .addComponent(lbStatusCaps)
-                .addContainerGap())
+                .addComponent(lbStatusCaps, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,12 +225,100 @@ public class UsersManagement extends javax.swing.JFrame {
                 .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btnShowTransactions.setText("Xem giao dịch đã thực hiện");
-        btnShowTransactions.addActionListener(new java.awt.event.ActionListener() {
+        jMenu1.setMnemonic('H');
+        jMenu1.setText("Hệ thống");
+
+        miNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/new.png"))); // NOI18N
+        miNew.setMnemonic('N');
+        miNew.setText("New");
+        jMenu1.add(miNew);
+
+        miOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/open.png"))); // NOI18N
+        miOpen.setMnemonic('O');
+        miOpen.setText("Open");
+        miOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowTransactionsActionPerformed(evt);
+                miOpenActionPerformed(evt);
             }
         });
+        jMenu1.add(miOpen);
+
+        miSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/save.png"))); // NOI18N
+        miSave.setMnemonic('S');
+        miSave.setText("Save");
+        jMenu1.add(miSave);
+        jMenu1.add(jSeparator1);
+
+        miExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        miExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/logout.png"))); // NOI18N
+        miExit.setMnemonic('L');
+        miExit.setText("Log out");
+        miExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miExitActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miExit);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("Quản lý nhân viên");
+
+        jMenuItem2.setText("Danh sách nhân viên");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem2);
+
+        jMenuItem4.setText("Thêm nhân viên");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Doanh thu");
+
+        jMenuItem3.setText("Tất cả doanh thu");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem5.setText("Từ giao dịch đất");
+        jMenuItem5.setEnabled(false);
+        jMenu4.add(jMenuItem5);
+
+        jCheckBoxMenuItem1.setText("Từ giao dịch nhà");
+        jCheckBoxMenuItem1.setEnabled(false);
+        jCheckBoxMenuItem1.setRequestFocusEnabled(false);
+        jMenu4.add(jCheckBoxMenuItem1);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu2.setText("Giới thiệu");
+
+        jMenuItem1.setText("Phiên bản");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -215,12 +326,6 @@ public class UsersManagement extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -243,7 +348,7 @@ public class UsersManagement extends javax.swing.JFrame {
                                     .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)))
                             .addComponent(btnShowTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnImport)
                                 .addGap(18, 18, 18)
@@ -252,11 +357,14 @@ public class UsersManagement extends javax.swing.JFrame {
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(272, 272, 272)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))))
+                .addContainerGap(29, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,9 +405,9 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnShowTransactions))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(btnExit)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -489,6 +597,41 @@ public class UsersManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
+    private void miOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miOpenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_miOpenActionPerformed
+
+    private void miExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miExitActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_miExitActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        UsersManagement usersManagement = new UsersManagement();
+        usersManagement.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        AddUserFrame addUserFrame = new AddUserFrame();
+        addUserFrame.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        this.dispose();
+        TransactionManagementFrame transactionManagementFrame = new TransactionManagementFrame(this, true);
+        transactionManagementFrame.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Phiên bản 1.0", "Giới thiệu", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -533,17 +676,33 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnExport;
     private javax.swing.JButton btnImport;
     private javax.swing.JButton btnShowTransactions;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JLabel lbDate;
     private javax.swing.JLabel lbStatusCaps;
     private javax.swing.JLabel lbTime;
+    private javax.swing.JMenuItem miExit;
+    private javax.swing.JMenuItem miNew;
+    private javax.swing.JMenuItem miOpen;
+    private javax.swing.JMenuItem miSave;
     private javax.swing.JTable tbUser;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
