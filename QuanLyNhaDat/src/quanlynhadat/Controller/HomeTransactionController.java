@@ -17,7 +17,7 @@ import quanlynhadat.Connect.ConnectDB;
 import static quanlynhadat.Connect.ConnectDB.getConnection;
 import quanlynhadat.Models.Transaction;
 
-public class LandTransactionController {
+public class HomeTransactionController {
 
     // Lấy toàn bộ danh sách giao dịch
     public static List<Transaction> getAllTransaction() {
@@ -25,7 +25,7 @@ public class LandTransactionController {
 
         try {
             Connection conn = ConnectDB.getConnection();
-            String sqlland = "SELECT * FROM LAND_TRANSACTIONS ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
+            String sqlland = "SELECT * FROM HOME_TRANSACTIONS ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sqlland);
             while (rs.next()) {
@@ -49,7 +49,7 @@ public class LandTransactionController {
 
         try {
             Connection conn = ConnectDB.getConnection();
-            String sqlland = "SELECT * FROM LAND_TRANSACTIONS where id='" + idUser + "' ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
+            String sqlland = "SELECT * FROM HOME_TRANSACTIONS where id='" + idUser + "' ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sqlland);
             while (rs.next()) {
@@ -72,7 +72,7 @@ public class LandTransactionController {
 
         try {
             Connection conn = ConnectDB.getConnection();
-            String sqlland = "SELECT * FROM LAND_TRANSACTIONS WHERE id='" + idUser + "' AND  t_id = '" + t_id + "'";
+            String sqlland = "SELECT * FROM HOME_TRANSACTIONS WHERE id='" + idUser + "' AND  t_id = '" + t_id + "'";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sqlland);
             while (rs.next()) {
@@ -91,7 +91,7 @@ public class LandTransactionController {
     }
 
     public static boolean CreateNewTransaction(Transaction trs) {
-        String sql = "INSERT INTO LAND_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES( ? , ? , ? , ?, ?)";
+        String sql = "INSERT INTO HOME_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES( ? , ? , ? , ?, ?)";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Connection conn = getConnection();
@@ -117,7 +117,7 @@ public class LandTransactionController {
     }
 
     public static boolean updateTransaction(Transaction trs) {
-        String sql = "UPDATE LAND_TRANSACTIONS SET t_date = ?, t_price = ?, t_type = ?, t_area = ?  WHERE t_id = ?";
+        String sql = "UPDATE HOME_TRANSACTIONS SET t_date = ?, t_price = ?, t_type = ?, t_area = ?  WHERE t_id = ?";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Connection conn = ConnectDB.getConnection();
@@ -142,7 +142,7 @@ public class LandTransactionController {
     }
 
     public static boolean deleteTransaction(int idUser, String t_id) {
-        String sqlDeleteUser = "DELETE FROM LAND_TRANSACTIONS WHERE id='" + idUser + "' AND  t_id = '" + t_id + "'";
+        String sqlDeleteUser = "DELETE FROM HOME_TRANSACTIONS WHERE id='" + idUser + "' AND  t_id = '" + t_id + "'";
         try {
 
             Connection conn = ConnectDB.getConnection();

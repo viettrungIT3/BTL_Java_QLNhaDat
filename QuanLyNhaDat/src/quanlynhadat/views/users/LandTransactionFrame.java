@@ -415,50 +415,42 @@ public class LandTransactionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnSuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaActionPerformed
-        // TODO add your handling code here:
-//        try {
-//            if (txtMaDG.getText().trim().compareTo("") == 0) {
-//                JOptionPane.showConfirmDialog(null, " Bạn phải chọn một giao dịch để sửa", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            if (txtDonGia.getText().trim().compareTo("") == 0) {
-//                JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            if (txtDienTich.getText().trim().compareTo("") == 0) {
-//                JOptionPane.showConfirmDialog(null, "Diện tích không được để trống", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                return;
-//            }
-//            String ma = txtMaDG.getText();
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//            String ngay = sdf.format(jdcNgayGD.getDate());
-//            float dg = Float.parseFloat(txtDonGia.getText());
-//            String ld = cbLoaiDat.getSelectedItem().toString();
-//            float dt = Float.parseFloat(txtDienTich.getText());
-//            float tt = 0;
-//            if (ld.compareTo("A") == 0) {
-//                tt = (float) (dg * dt * 1.5);
-//            } else {
-//                tt = dg * dt;
-//            }
-//            LandTransaction x = new LandTransaction(ma, ngay, dg, ld, dt, tt);
-//
-//            int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//            if (responseConfirm == JOptionPane.YES_OPTION) {
-//                if (!LandTransaction.updateGDDat(x)) {
-//                    JOptionPane.showConfirmDialog(null, "Sửa giao dịch đất thất bại", "Lỗi sửa giao dịch thất bại", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//                    return;
-//                }
-//                JOptionPane.showConfirmDialog(null, "Sửa giao dịch thành công", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-//                DefaultTableModel tbModel = (DefaultTableModel) tbGDDat.getModel();
-//                tbModel.setRowCount(0);
-//                showDataFromDBToTable();
-//            }
-//        } catch (NumberFormatException ex1) {
-//            JOptionPane.showConfirmDialog(null, "Bạn phải nhập đúng định dạng", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-//
-//        }
-//        clearAll();
+        if (txtMaDG.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, " Bạn phải chọn một giao dịch để sửa", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (txtDonGia.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Đơn giá không được để trống", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (txtDienTich.getText().trim().compareTo("") == 0) {
+            JOptionPane.showConfirmDialog(null, "Diện tích không được để trống", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Date ngay = jdcNgayGD.getDate();
+        float dg = Float.parseFloat(txtDonGia.getText());
+        String ld = cbLoaiDat.getSelectedItem().toString();
+        float dt = Float.parseFloat(txtDienTich.getText());
+        float tt = 0;
+        if (ld.compareTo("A") == 0) {
+            tt = (float) (dg * dt * 1.5);
+        } else {
+            tt = dg * dt;
+        }
+        Transaction x = new Transaction(ngay, dg, ld, dt, idUser);
+
+        int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (responseConfirm == JOptionPane.YES_OPTION) {
+            if (!LandTransactionController.updateTransaction(x)) {
+                JOptionPane.showConfirmDialog(null, "Sửa giao dịch đất thất bại", "Lỗi sửa giao dịch thất bại", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showConfirmDialog(null, "Sửa giao dịch thành công", "Lỗi sửa giao dịch", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+            DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
+            model.setRowCount(0);
+            formWindowOpened(null);
+        }
+        btnResetActionPerformed(null);
     }//GEN-LAST:event_btnSuaActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
