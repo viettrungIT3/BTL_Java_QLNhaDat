@@ -37,13 +37,16 @@ public class AccountFileController {
             conn.close();
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("FILE to SQL false by DELETE!" + e.getMessage());
         }
         List<Account> a2 = accountFile.read();
-
+        List<Account> accountList = List.copyOf(AccountController.getAllAccount());
         for (Account a : a2) {
 //            System.out.println(a.toString());
-            AccountController.CreateNewAccount((Account) a);
+            if ( AccountController.checkLogin(a.getUsername(), a.getPassword()) == null) {
+                AccountController.CreateNewAccount((Account) a);
+                System.out.println("Create new an account success! " + a.toString());
+            }
         }
         System.out.println("FILE to SQL success!");
     }
