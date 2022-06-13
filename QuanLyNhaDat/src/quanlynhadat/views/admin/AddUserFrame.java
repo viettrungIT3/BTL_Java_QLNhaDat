@@ -27,7 +27,6 @@ public class AddUserFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -37,20 +36,19 @@ public class AddUserFrame extends javax.swing.JFrame {
         btnAdd = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         btnReset = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("THÊM TÀI KHOẢN NGƯỜI DÙNG");
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setText("Thêm tài khoản người dùng");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Họ tên:");
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Tên đăng nhập:");
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Mật khẩu:");
 
         txtName.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -59,7 +57,7 @@ public class AddUserFrame extends javax.swing.JFrame {
 
         txtPassword.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnAdd.setText("Thêm");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +65,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             }
         });
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnExit.setText("Đóng");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,13 +73,35 @@ public class AddUserFrame extends javax.swing.JFrame {
             }
         });
 
-        btnReset.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnReset.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnReset.setText("Xóa dữ liệu");
         btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnResetActionPerformed(evt);
             }
         });
+
+        jPanel1.setBackground(new java.awt.Color(51, 153, 255));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("Thêm tài khoản người dùng");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(208, 208, 208))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(55, 55, 55))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,22 +122,18 @@ public class AddUserFrame extends javax.swing.JFrame {
                             .addComponent(txtPassword)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnReset)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                         .addComponent(btnAdd)
                         .addGap(75, 75, 75)
                         .addComponent(btnExit)))
-                .addGap(201, 201, 201))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(198, 198, 198))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(83, 83, 83)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,10 +147,10 @@ public class AddUserFrame extends javax.swing.JFrame {
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAdd)
-                    .addComponent(btnExit)
-                    .addComponent(btnReset))
-                .addContainerGap(211, Short.MAX_VALUE))
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         pack();
@@ -159,7 +175,7 @@ public class AddUserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+         //TODO add your handling code here:
         if (txtName.getText().trim().compareTo("") == 0) {
             JOptionPane.showConfirmDialog(null, "Họ tên không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
@@ -180,19 +196,26 @@ public class AddUserFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Mật khẩu phải có ít nhất 8 ký tự", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
-
-        Account account = new Account( txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2);
+       Account account = new Account( txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2,true);
+        System.out.println(account);
         if (!AccountController.CreateNewAccount(account)) {
+             System.out.println("-----");
+         System.out.println(account);
             JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thất bại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        else
+        {
+            System.out.println("ok roi day");
+        }
         int responseStatus = JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thành công", "Thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (responseStatus == JOptionPane.OK_OPTION) {
             this.dispose();
             UsersManagement usersManagement = new UsersManagement();
             usersManagement.setVisible(true);
         }
+        System.out.println("-----");
+         System.out.println(account);
     }//GEN-LAST:event_btnAddActionPerformed
 
     /**
@@ -239,6 +262,7 @@ public class AddUserFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;

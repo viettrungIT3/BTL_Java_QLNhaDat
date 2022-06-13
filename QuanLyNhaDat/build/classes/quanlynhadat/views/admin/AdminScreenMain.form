@@ -102,6 +102,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/quanlynhadat/views/icons/home2.png"/>
+            </Property>
             <Property name="mnemonic" type="int" value="72"/>
             <Property name="text" type="java.lang.String" value="H&#x1ec7; th&#x1ed1;ng"/>
           </Properties>
@@ -166,29 +169,27 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; nh&#xe2;n vi&#xea;n"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/quanlynhadat/views/icons/Person-Male-Light-icon-24.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; t&#xe0;i kho&#x1ea3;n ng&#x1b0;&#x1edd;i d&#xf9;ng"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch nh&#xe2;n vi&#xea;n"/>
+                <Property name="text" type="java.lang.String" value="Danh s&#xe1;ch ng&#x1b0;&#x1edd;i d&#xf9;ng"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Th&#xea;m nh&#xe2;n vi&#xea;n"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/quanlynhadat/views/icons/Actions-view-choose-icon-24.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Doanh thu"/>
           </Properties>
           <SubComponents>
@@ -217,6 +218,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/quanlynhadat/views/icons/search-icon-24.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
           </Properties>
           <SubComponents>
@@ -235,7 +239,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="CH&#x1af;&#x1a0;NG TR&#xcc;NH QU&#x1ea2;N L&#xdd; H&#x1ed2; S&#x1a0; H&#x1ecc;C SINH"/>
+    <Property name="title" type="java.lang.String" value="CH&#x1af;&#x1a0;NG TR&#xcc;NH QU&#x1ea2;N L&#xdd; GIAO D&#x1eca;CH NH&#xc0; &#x110;&#x1ea4;T"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -263,12 +267,23 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel1" alignment="1" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel2" max="32767" attributes="0"/>
+                  <Component id="jLabel1" alignment="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace pref="550" max="32767" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="507" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -290,7 +305,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="686" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="lbTime" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Component id="lbDate" min="-2" max="-2" attributes="0"/>
@@ -319,6 +334,71 @@
         <Component class="javax.swing.JLabel" name="lbDate">
         </Component>
         <Component class="javax.swing.JLabel" name="lbTime">
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/quanlynhadat/views/icons/anh_nen.PNG"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="jLabel1"/>
+      </Properties>
+    </Component>
+    <Container class="javax.swing.JPanel" name="jPanel2">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="99" red="33" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="459" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnDangXuat" min="-2" pref="124" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="btnDangXuat" min="-2" pref="32" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="27" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value=" C&#xf4;ng ty TNHH Qu&#x1ea3;n l&#xfd; b&#x1ea5;t &#x111;&#x1ed9;ng s&#x1ea3;n IMart"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnDangXuat">
+          <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/quanlynhadat/views/icons/Login-icon-16.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDangXuatActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

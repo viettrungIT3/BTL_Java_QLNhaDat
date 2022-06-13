@@ -29,7 +29,10 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jPanel1" min="-2" pref="481" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -45,22 +48,22 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="327" max="32767" attributes="0"/>
-                  <Component id="jLabel1" min="-2" pref="273" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
-              </Group>
               <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" pref="467" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" pref="43" max="-2" attributes="0"/>
-                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,7 +77,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ph&#x1ea7;n m&#x1ec1;m qu&#x1ea3;n l&#xfd; nh&#xe0; &#x111;&#x1ea5;t"/>
+            <Property name="text" type="java.lang.String" value="CH&#x1af;&#x1a0;NG TR&#xcc;NH QU&#x1ea2;N L&#xdd; GIAO D&#x1eca;CH NH&#xc0; &#x110;&#x1ea4;T"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -102,7 +105,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                       <Component id="btnGDDat" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="135" max="32767" attributes="0"/>
                       <Component id="btnGDNha" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
                   </Group>
@@ -123,7 +126,7 @@
                           <Component id="btnGDDat" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
                           <Component id="btnGDNha" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="150" max="32767" attributes="0"/>
+                      <EmptySpace pref="61" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnDangXuat" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="btnThoat" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
