@@ -4,10 +4,7 @@
  */
 package quanlynhadat;
 
-import java.util.List;
-import quanlynhadat.Controller.AccountController;
-import quanlynhadat.File.AccountFile;
-import quanlynhadat.Models.Account;
+import java.util.ArrayList;
 
 /**
  *
@@ -19,14 +16,17 @@ public class QuanLyNhaDat {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        AccountFile accountFile = new AccountFile();
-        List<Account> a2 = List.copyOf(accountFile.read());
-        for (Account a : a2) {
-            System.out.println(a.toString());
-            if ( AccountController.checkLogin(a.getUsername(), a.getPassword()) == null) {
-                System.out.println("Create new an account success! " + a.toString());
-            }
-        }
+        ArrayList<String> obj = new ArrayList();
+
+        obj.add("A");
+
+        obj.add("B");
+
+        obj.add("C");
+
+        obj.add(1, "D");
+
+        System.out.println(obj);
     }
-    
+
 }
