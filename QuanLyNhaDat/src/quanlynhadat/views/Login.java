@@ -166,14 +166,17 @@ public class Login extends javax.swing.JFrame {
                     AdminScreenMain adminScreenMain = new AdminScreenMain();
                     adminScreenMain.setVisible(true);
                     this.dispose();
-                } else if (acc.getStatus().compareTo("Ðang hoạt động") == 1) {
+                } else if (acc.getStatus().compareTo("Ðang hoạt động") == 0) {
                     JOptionPane.showMessageDialog(null, "Đăng nhập thành công với quyền nhân viên!");
                     int id = acc.getId();
                     TransactionsFrame transactionsFrame = new TransactionsFrame(id);
                     transactionsFrame.setVisible(true);
                     this.dispose();
+
+                } else if (acc.getStatus().compareTo("Ðang hoạt động") != 0) {
+                    JOptionPane.showMessageDialog(this, "Nhân viên này đã nghỉ làm! Vui lòng đăng nhập tài khoản khác");
                 } else {
-                    JOptionPane.showMessageDialog(this, "Nhân viên này đã nghỉ làm! Vui lòng đăng nhập tài khaonr khác");
+                    JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
                 }
             } else {
                 JOptionPane.showMessageDialog(this, "Đăng nhập thất bại!");
@@ -202,16 +205,24 @@ public class Login extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
