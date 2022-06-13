@@ -19,7 +19,7 @@ CREATE TABLE USERS (
   role_id int NOT NULL,
   status_u bit,
   PRIMARY KEY (id),
-  FOREIGN KEY (role_id) REFERENCES ROLES(role_id) on update CASCADE  ON DELETE CASCADE 
+  FOREIGN KEY (role_id) REFERENCES ROLES(role_id)
 ) 
 GO
 CREATE TABLE LAND_TRANSACTIONS (
@@ -54,12 +54,11 @@ INSERT INTO ROLES ( name) VALUES
 GO
 INSERT INTO USERS ( fullname, username, password_u, role_id, status_u ) VALUES
 ( N'Admin', 'admin', '123', 1, 1),
-
-( N'Việt Trung', 'trung0', '123', 2,1),
-( N'Bùi Thị Hải', 'hai123', '12345678', 2,1),
-( N'Hà Thị Phượng', 'phuong123', '12345678', 2,1),
-( N'Nguyễn Thị Tú Anh', 'anh123', '12345678', 2,1),
-( N'Hoàng Thi Kim', 'kim123', '12345678', 2,1)
+( N'Việt Trung', 'trung0', '123', 2, 1),
+( N'Bùi Thị Hải', 'hai123', '12345678', 2, 1),
+( N'Hà Thị Phượng', 'phuong123', '12345678', 2, 1),
+( N'Nguyễn Thị Tú Anh', 'anh123', '12345678', 2, 1),
+( N'Hoàng Thi Kim', 'kim123', '12345678', 2, 1)
 
 
 GO
@@ -99,9 +98,3 @@ INSERT INTO HOME_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES
 SELECT * FROM USERS
 select * from LAND_TRANSACTIONS
 select * from HOME_TRANSACTIONS
-
-
-INSERT INTO USERS ( fullname, username, password_u, role_id, status_u )  VALUES
-( N'Hoàng Thi Kim', 'Kim123321', 'Ki45678;', 2,1)
-
-delete from USERS where id =6;
