@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.sql.*;
 import quanlynhadat.Models.Account;
-import quanlynhadat.csdl.CSDL;
-import static quanlynhadat.csdl.CSDL.getConnection;
+import quanlynhadat.Connect.ConnectDB;
+import static quanlynhadat.Connect.ConnectDB.getConnection;
 
 /**
  *
@@ -46,7 +46,7 @@ public class AccountController {
     
     public static List<Account> getAccountsLikeUsername(String name) {
         List<Account> accounts = new ArrayList<>();
-        String sql = "select * from USERS where username LIKE '%" + name + "%'";
+        String sql = "select * from USERS where username LIKE N'%" + name + "%'";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
@@ -167,7 +167,7 @@ public class AccountController {
         String sql = "UPDATE USERS SET fullname = ?, username = ?, password = ?  WHERE id = ?";
         try {
 
-            Connection conn = CSDL.getConnection();
+            Connection conn = ConnectDB.getConnection();
             PreparedStatement p = conn.prepareStatement(sql);
 
             p.setString(1, account.getFullname());
@@ -191,7 +191,7 @@ public class AccountController {
         String sqlDeleteUser = "DELETE FROM USERS WHERE id = ?";
         try {
 
-            Connection conn = CSDL.getConnection();
+            Connection conn = ConnectDB.getConnection();
             PreparedStatement p = conn.prepareStatement(sqlDeleteUser);
 
             p.setInt(1, accountId);

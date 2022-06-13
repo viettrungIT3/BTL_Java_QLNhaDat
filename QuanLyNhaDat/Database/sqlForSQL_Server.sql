@@ -20,27 +20,27 @@ CREATE TABLE USERS (
 ) 
 GO
 CREATE TABLE LAND_TRANSACTIONS (
-  land_id int IDENTITY(1,1) NOT NULL,
-  land_date DATE NOT NULL,
-  land_price FLOAT NOT NULL,
-  land_type VARCHAR(1) NOT NULL,
-  land_area FLOAT NOT NULL,
+  t_id int IDENTITY(1,1) NOT NULL,
+  t_date DATE NOT NULL,
+  t_price FLOAT NOT NULL,
+  t_type VARCHAR(1) NOT NULL,
+  t_area FLOAT NOT NULL,
   id int NOT NULL,
-  PRIMARY KEY (land_id),
-  CONSTRAINT FK__LAND_TRANSAC__id FOREIGN KEY (id) REFERENCES USERS(id),
-  CONSTRAINT CHK_Land CHECK (Land_type='A' OR Land_type='B' OR Land_type='C')
+  PRIMARY KEY (T_id),
+  FOREIGN KEY (id) REFERENCES USERS(id),
+  CHECK (t_type='A' OR t_type='B' OR t_type='C')
 ) 
 GO
 CREATE TABLE HOME_TRANSACTIONS (
-  home_id int IDENTITY(1,1) NOT NULL,
-  home_date DATE NOT NULL,
-  home_price FLOAT NOT NULL,
-  home_type NVARCHAR(12) NOT NULL,
-  home_area FLOAT NOT NULL,
+  t_id int IDENTITY(1,1) NOT NULL,
+  t_date DATE NOT NULL,
+  t_price FLOAT NOT NULL,
+  t_type NVARCHAR(12) NOT NULL,
+  t_area FLOAT NOT NULL,
   id int NOT NULL,
-  PRIMARY KEY (home_id),
-  CONSTRAINT FK__HOME_TRANSAC__id FOREIGN KEY (id) REFERENCES USERS(id),
-  CONSTRAINT CHK_Home CHECK (home_type=N'cao cấp' OR home_type=N'thường')
+  PRIMARY KEY (T_id),
+  FOREIGN KEY (id) REFERENCES USERS(id),
+  CHECK (t_type=N'cao cấp' OR t_type=N'thường')
 )
 
 GO
@@ -53,3 +53,22 @@ INSERT INTO users ( fullname, username, password, role_id ) VALUES
 ( N'Admin', 'admin', '123', 1),
 ( N'Nguyễn Việt Trung', 'viettrungcntt03@gmail.com', '123', 2);
 
+GO
+INSERT INTO LAND_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES 
+( '2022-06-01', 99, 'B', 1000, 2),
+( '2021-06-01', 199, 'A', 500, 2),
+( '2022-06-01', 89, 'C', 1000, 2),
+( '2022-06-01', 299, 'A', 500, 2),
+( '2021-06-01', 69, 'C', 1000, 2)
+
+GO
+INSERT INTO HOME_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES 
+( '2022-06-01', 99, N'cao cấp', 1000, 2),
+( '2022-06-01', 69, N'thường', 500, 2),
+( '2022-06-01', 69, N'thường', 1000, 2),
+( '2022-06-01', 99, N'cao cấp', 1000, 2),
+( '2022-06-01', 99, N'cao cấp', 1000, 2)
+
+SELECT * FROM USERS
+select * from LAND_TRANSACTIONS
+select* from HOME_TRANSACTIONS

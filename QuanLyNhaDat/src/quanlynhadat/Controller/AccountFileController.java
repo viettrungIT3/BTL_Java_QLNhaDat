@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 import quanlynhadat.File.AccountFile;
 import quanlynhadat.Models.Account;
-import static quanlynhadat.csdl.CSDL.getConnection;
+import static quanlynhadat.Connect.ConnectDB.getConnection;
 
 /**
  *
