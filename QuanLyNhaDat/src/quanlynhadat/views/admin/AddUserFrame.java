@@ -170,12 +170,12 @@ public class AddUserFrame extends javax.swing.JFrame {
         txtUsername.setText("");
         txtPassword.setText("");
         txtName.requestFocus();
-        
-        
+
+
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-         //TODO add your handling code here:
+        //TODO add your handling code here:
         if (txtName.getText().trim().compareTo("") == 0) {
             JOptionPane.showConfirmDialog(null, "Họ tên không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
@@ -184,7 +184,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Tên đăng nhập không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
-        if (AccountController.checkUsername( txtUsername.getText().trim())) {
+        if (AccountController.checkUsername(txtUsername.getText().trim())) {
             JOptionPane.showConfirmDialog(null, "Tên đăng nhập đã tồn tại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -196,17 +196,13 @@ public class AddUserFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Mật khẩu phải có ít nhất 8 ký tự", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
-       Account account = new Account( txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2,true);
+        Account account = new Account(txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2, true);
         System.out.println(account);
         if (!AccountController.CreateNewAccount(account)) {
-             System.out.println("-----");
-         System.out.println(account);
+            System.out.println("-----");
+            System.out.println(account);
             JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thất bại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
-        }
-        else
-        {
-            System.out.println("ok roi day");
         }
         int responseStatus = JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thành công", "Thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (responseStatus == JOptionPane.OK_OPTION) {
@@ -215,7 +211,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             usersManagement.setVisible(true);
         }
         System.out.println("-----");
-         System.out.println(account);
+        System.out.println(account);
     }//GEN-LAST:event_btnAddActionPerformed
 
     /**

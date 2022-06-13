@@ -92,10 +92,9 @@ public class Account implements Serializable{
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
+
     @Override
     public String toString() {
-        return "Account{" + "id=" + id + ", fullname=" + fullname + ", username=" + username + ", password=" + password + ", role_id=" + role_id + '}';
+        return "Account{" + "id=" + id + ", fullname=" + fullname + ", username=" + username + ", password=" + password + ", role_id=" + role_id + ", status=" + status + '}';
     }
-
 }
