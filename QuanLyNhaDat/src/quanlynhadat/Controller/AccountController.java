@@ -146,7 +146,7 @@ public class AccountController {
     }
 
     public static boolean CreateNewAccount(Account account) {
-        String sql = "INSERT INTO USERS ( fullname, username, password_u, role_id,status_u) VALUES (?,?,?,?,?)";
+        String sql = "INSERT INTO USERS ( fullname, username, password_u, role_id, status_u) VALUES (?,?,?,?,?)";
         try {
             Connection conn = getConnection();
             PreparedStatement p = conn.prepareStatement(sql);
