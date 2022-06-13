@@ -400,6 +400,12 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         System.out.println("Month = " + month + ", Year = " + year);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
+        if (year.trim().equals("")){
+            cbYear.setSelectedIndex(1);
+            year = (String) cbYear.getSelectedItem();
+            System.out.println("Month = " + month + ", Year = " + year);
+        }
+        
         if (month.compareTo(" ") == 0) {
             list = TransactionController.getAllTransactionByYear(year);
         } else {
