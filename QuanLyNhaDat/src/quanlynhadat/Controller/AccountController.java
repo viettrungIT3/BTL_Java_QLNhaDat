@@ -22,7 +22,7 @@ public class AccountController {
 
     public static List<Account> getAllAccount() {
         List<Account> accounts = new ArrayList<>();
-        String sql = "select * from USERS";
+        String sql = "select * from USERS ";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
@@ -33,7 +33,8 @@ public class AccountController {
                         p.getString(2),
                         p.getString(3),
                         p.getString(4),
-                        p.getInt(5)
+                        p.getInt(5),
+                        p.getBoolean(6)
                 );
 
                 accounts.add(acc);
@@ -46,7 +47,8 @@ public class AccountController {
     
     public static List<Account> getAccountsLikeUsername(String name) {
         List<Account> accounts = new ArrayList<>();
-        String sql = "select * from USERS where username LIKE N'%" + name + "%'";
+        String sql = "select * from USERS where status_u = 1";
+        //String sql = "select * from USERS where username LIKE N'%" + name + "%'";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
@@ -57,7 +59,8 @@ public class AccountController {
                         p.getString(2),
                         p.getString(3),
                         p.getString(4),
-                        p.getInt(5)
+                        p.getInt(5),
+                        p.getBoolean(6)//kim
                 );
 
                 accounts.add(acc);
@@ -81,7 +84,8 @@ public class AccountController {
                         p.getString(2),
                         p.getString(3),
                         p.getString(4),
-                        p.getInt(5)
+                        p.getInt(5),
+                        p.getBoolean(6)//kim
                 );
             }
         } catch (SQLException e) {
@@ -92,7 +96,7 @@ public class AccountController {
 
     public static Account checkLogin(String username, String password) {
         Account acc = null;
-        String sql = "select * from USERS where username = '" + username + "' and password = '" + password + "'";
+        String sql = "select * from USERS where username = '" + username + "' and password_u = '" + password + "'";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();
@@ -103,7 +107,8 @@ public class AccountController {
                         p.getString(2),
                         p.getString(3),
                         p.getString(4),
-                        p.getInt(5)
+                        p.getInt(5),
+                        p.getBoolean(6)//kim
                 );
             }
         } catch (SQLException e) {
@@ -125,7 +130,8 @@ public class AccountController {
                         p.getString(2),
                         p.getString(3),
                         p.getString(4),
-                        p.getInt(5)
+                        p.getInt(5),
+                        p.getBoolean(6)
                 );
             }
             if (acc == null) {
@@ -140,7 +146,7 @@ public class AccountController {
     }
 
     public static boolean CreateNewAccount(Account account) {
-        String sql = "INSERT INTO USERS ( fullname, username, password, role_id ) VALUES( ? , ? , ? , ?)";
+        String sql = "INSERT INTO USERS ( fullname, username, password_u, role_id, status_u) VALUES (?,?,?,?,?)";
         try {
             Connection conn = getConnection();
             PreparedStatement p = conn.prepareStatement(sql);
@@ -148,10 +154,8 @@ public class AccountController {
             p.setString(2, account.getUsername());
             p.setString(3, account.getPassword());
             p.setInt(4, account.getRole_id());
-            if (p.executeUpdate() > 0) {
-                return true;
-            }
-            p.execute();
+            p.setBoolean(5,true);
+            p.executeUpdate();
             p.close();
             conn.close();
             System.out.println("Create new account success!");
@@ -164,7 +168,7 @@ public class AccountController {
     }
 
     public static boolean updateAccount(Account account) {
-        String sql = "UPDATE USERS SET fullname = ?, username = ?, password = ?  WHERE id = ?";
+        String sql = "UPDATE USERS SET fullname = ?, username = ?, password_u = ?  WHERE id = ?";
         try {
 
             Connection conn = ConnectDB.getConnection();
@@ -174,7 +178,6 @@ public class AccountController {
             p.setString(2, account.getUsername());
             p.setString(3, account.getPassword());
             p.setInt(4, account.getId());
-
             p.execute();
             p.close();
             conn.close();
@@ -187,14 +190,15 @@ public class AccountController {
         }
     }
     
-    public static boolean deleteAccount(Integer accountId) {
-        String sqlDeleteUser = "DELETE FROM USERS WHERE id = ?";
+    public static boolean deleteAccount(Integer accountId, boolean status) {
+        String sqlDeleteUser = "UPDATE USERS SET status_u = ? WHERE id = ?";
         try {
 
             Connection conn = ConnectDB.getConnection();
             PreparedStatement p = conn.prepareStatement(sqlDeleteUser);
 
-            p.setInt(1, accountId);
+            p.setBoolean(1, status);
+            p.setInt(2, accountId);
 
             p.execute();
             p.close();
@@ -206,4 +210,5 @@ public class AccountController {
             return false;
         }
     }
+    
 }

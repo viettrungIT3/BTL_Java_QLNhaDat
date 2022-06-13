@@ -4,6 +4,8 @@
  */
 package quanlynhadat.views.users;
 
+import quanlynhadat.views.Login;
+
 /**
  *
  * @author Trung
@@ -13,14 +15,13 @@ public class TransactionsFrame extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    
     int idUser;
-    
+
     public TransactionsFrame() {
         initComponents();
         System.out.println("id = " + idUser);
     }
-    
+
     public TransactionsFrame(int id) {
         initComponents();
         idUser = id;
@@ -52,7 +53,7 @@ public class TransactionsFrame extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel1.setText("Phần mềm quản lý nhà đất");
+        jLabel1.setText("CHƯƠNG TRÌNH QUẢN LÝ GIAO DỊCH NHÀ ĐẤT");
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 204));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Chức năng nghiệp vụ", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(255, 0, 51))); // NOI18N
@@ -79,6 +80,11 @@ public class TransactionsFrame extends javax.swing.JFrame {
         btnDangXuat.setForeground(new java.awt.Color(255, 0, 0));
         btnDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/Login-icon-16.png"))); // NOI18N
         btnDangXuat.setText("Đăng xuất");
+        btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangXuatActionPerformed(evt);
+            }
+        });
 
         btnThoat.setForeground(new java.awt.Color(255, 0, 0));
         btnThoat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/Button-Close-icon-16.png"))); // NOI18N
@@ -96,7 +102,7 @@ public class TransactionsFrame extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(138, 138, 138)
                 .addComponent(btnGDDat)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addComponent(btnGDNha)
                 .addGap(138, 138, 138))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -113,7 +119,7 @@ public class TransactionsFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGDDat, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnGDNha, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThoat, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -124,20 +130,20 @@ public class TransactionsFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(327, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(200, 200, 200))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(207, 207, 207)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(108, 108, 108))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -148,7 +154,9 @@ public class TransactionsFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -157,16 +165,20 @@ public class TransactionsFrame extends javax.swing.JFrame {
 
     private void btnGDDatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDDatActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        LandTransactionFrame dialog = new LandTransactionFrame(idUser);
-        dialog.setVisible(true);
+        if (idUser != 0) {
+            this.dispose();
+            LandTransactionFrame dialog = new LandTransactionFrame(idUser);
+            dialog.setVisible(true);
+        }
     }//GEN-LAST:event_btnGDDatActionPerformed
 
     private void btnGDNhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGDNhaActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        HomeTransactionFrame dialog = new HomeTransactionFrame();
-//        dialog.setVisible(true);
+        if (idUser != 0) {
+            this.dispose();
+            HomeTransactionFrame dialog = new HomeTransactionFrame(idUser);
+            dialog.setVisible(true);
+        }
 
     }//GEN-LAST:event_btnGDNhaActionPerformed
 
@@ -175,6 +187,12 @@ public class TransactionsFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
+        this.dispose();
+        Login login = new Login();
+        login.setVisible(true);
+    }//GEN-LAST:event_btnDangXuatActionPerformed
 
     /**
      * @param args the command line arguments

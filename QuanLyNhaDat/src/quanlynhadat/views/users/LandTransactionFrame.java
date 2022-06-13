@@ -20,7 +20,6 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
     public LandTransactionFrame() {
         initComponents();
-        idUser = 2;
     }
 
     public LandTransactionFrame(int id) {
@@ -356,7 +355,7 @@ public class LandTransactionFrame extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();
-        TransactionsFrame dialog = new TransactionsFrame();
+        TransactionsFrame dialog = new TransactionsFrame(idUser);
         dialog.setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
 
@@ -437,7 +436,10 @@ public class LandTransactionFrame extends javax.swing.JFrame {
         } else {
             tt = dg * dt;
         }
-        Transaction x = new Transaction(ngay, dg, ld, dt, idUser);
+         int id_L = Integer.parseInt(txtMaDG.getText()); 
+        
+        Transaction x = new Transaction(id_L, ngay, dg, ld, dt, idUser);
+       // Transaction x = new Transaction(ngay, dg, ld, dt, idUser);
 
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (responseConfirm == JOptionPane.YES_OPTION) {
@@ -486,9 +488,18 @@ public class LandTransactionFrame extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
         model.getDataVector().removeAllElements();
         model.fireTableDataChanged();
+        
         for (int i = 0; i < transactions.size(); i++) {
             Transaction t = transactions.get(i);
-            model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+            String x=t.getT_type();
+            float tt=0;
+            float dg=t.getT_price();
+            float s=t.getT_area();
+            if(x.equalsIgnoreCase("A"))
+                tt=dg*s*1.5f;
+            else
+                tt=dg*s;
+            model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -502,13 +513,22 @@ public class LandTransactionFrame extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
                 model.setRowCount(0);
                 formWindowOpened(null);
+                
             } else {
                 Transaction t = LandTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
+                String x=t.getT_type();
+                float tt=0;
+                float dg=t.getT_price();
+                float s=t.getT_area();
+                if(x.equalsIgnoreCase("A"))
+                    tt=dg*s*1.5f;
+                else
+                    tt=dg*s;
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 DefaultTableModel model = (DefaultTableModel) tbGDDat.getModel();
                 model.getDataVector().removeAllElements();
                 model.fireTableDataChanged();
-                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
             }
         }
     }//GEN-LAST:event_txtTimKiemKeyPressed

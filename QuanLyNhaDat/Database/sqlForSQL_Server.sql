@@ -1,4 +1,5 @@
-﻿CREATE DATABASE btl_java_quanlynhadat
+﻿drop database btl_java_quanlynhadat;
+CREATE DATABASE btl_java_quanlynhadat
 GO
 USE btl_java_quanlynhadat
 GO
@@ -15,6 +16,7 @@ CREATE TABLE USERS (
   username nvarchar(30) NOT NULL,
   password nvarchar(30) NOT NULL,
   role_id int NOT NULL,
+  status bit,
   PRIMARY KEY (id),
   FOREIGN KEY (role_id) REFERENCES ROLES(role_id)
 ) 
@@ -49,26 +51,53 @@ INSERT INTO ROLES ( name) VALUES
 (N'Nhân viên');
 
 GO
-INSERT INTO users ( fullname, username, password, role_id ) VALUES
-( N'Admin', 'admin', '123', 1),
-( N'Nguyễn Việt Trung', 'viettrungcntt03@gmail.com', '123', 2);
+INSERT INTO users ( fullname, username, password, role_id, status ) VALUES
+( N'Admin', 'admin', '123', 1, 1),
+( N'Việt Trung', 'trung0', '123', 2,1),
+( N'Bùi Thị Hải', 'hai123', '12345678', 2,1),
+( N'Hà Thị Phượng', 'phuong123', '12345678', 2,1),
+( N'Nguyễn Thị Tú Anh', 'anh123', '12345678', 2,1),
+( N'Hoàng Thi Kim', 'kim123', '12345678', 2,1)
 
 GO
 INSERT INTO LAND_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES 
-( '2022-06-01', 99, 'B', 1000, 2),
-( '2021-06-01', 199, 'A', 500, 2),
-( '2022-06-01', 89, 'C', 1000, 2),
-( '2022-06-01', 299, 'A', 500, 2),
-( '2021-06-01', 69, 'C', 1000, 2)
+( GETDATE(), 99, 'B', 1000, 4),
+( '2021-06-02', 199, 'A', 500, 3),
+( '2022-06-03', 89, 'C', 1000, 2),
+( '2022-03-02', 299, 'A', 500, 3),
+( '2021-03-04', 69, 'C', 1000, 2),
+( '2021-04-02', 199, 'A', 500, 2),
+( '2022-05-03', 89, 'C', 1000, 2),
+( '2022-01-02', 299, 'A', 500, 4),
+( '2021-02-04', 69, 'C', 1000, 4),
+( '2021-02-02', 199, 'A', 500, 5),
+( '2022-08-03', 89, 'C', 1000, 5),
+( '2022-06-02', 299, 'A', 500, 3),
+( '2021-06-04', 69, 'C', 1000, 2)
 
 GO
 INSERT INTO HOME_TRANSACTIONS (t_date, t_price, t_type, t_area, id) VALUES 
 ( '2022-06-01', 99, N'cao cấp', 1000, 2),
 ( '2022-06-01', 69, N'thường', 500, 2),
-( '2022-06-01', 69, N'thường', 1000, 2),
+( '2022-02-01', 69, N'thường', 1000, 3),
+( '2022-03-01', 99, N'cao cấp', 1000, 3),
+( '2022-04-01', 99, N'cao cấp', 1000, 4),
+( '2022-05-01', 99, N'cao cấp', 1000, 2),
+( '2022-01-01', 69, N'thường', 500, 4),
+( '2022-01-01', 69, N'thường', 1000, 5),
+( '2022-02-01', 99, N'cao cấp', 1000, 5),
 ( '2022-06-01', 99, N'cao cấp', 1000, 2),
+( '2022-06-01', 99, N'cao cấp', 1000, 6),
+( '2022-08-01', 69, N'thường', 500, 2),
+( '2022-08-01', 69, N'thường', 1000, 3),
+( '2022-09-01', 99, N'cao cấp', 1000, 3),
 ( '2022-06-01', 99, N'cao cấp', 1000, 2)
 
 SELECT * FROM USERS
 select * from LAND_TRANSACTIONS
-select* from HOME_TRANSACTIONS
+select * from HOME_TRANSACTIONS
+INSERT INTO users ( fullname, username, password, role_id, status ) VALUES
+( N'NV1', 'nhanvien', '1234', 2, 1);
+
+UPDATE HOME_TRANSACTIONS SET t_price = 30, t_type = N'cao cấp', t_area = 3000  WHERE t_id = 2 
+       INSERT INTO USERS ( fullname, username, password, role_id,status) VALUES( 'a' , 'b' , '123' , 2,1);
