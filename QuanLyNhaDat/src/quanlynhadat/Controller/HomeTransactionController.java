@@ -117,9 +117,11 @@ public class HomeTransactionController {
     }
 
     public static boolean updateTransaction(Transaction trs) {
-        String sql = "UPDATE HOME_TRANSACTIONS SET t_date = ?, t_price = ?, t_type = ?, t_area = ?  WHERE t_id = ?";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        System.out.println(trs);
         try {
+           
+            String sql = "UPDATE HOME_TRANSACTIONS SET t_date = ?, t_price = ?, t_type = ?, t_area = ?  WHERE t_id = ?";
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Connection conn = ConnectDB.getConnection();
             PreparedStatement p = conn.prepareStatement(sql);
 
@@ -129,9 +131,9 @@ public class HomeTransactionController {
             p.setString(4, trs.getT_area() + "");
             p.setInt(5, trs.getT_id());
 
-            p.execute();
-            p.close();
-            conn.close();
+            p.executeUpdate();
+//            p.close();
+//            conn.close();
             System.out.println("Update LandTransaction success!");
             return true;
 

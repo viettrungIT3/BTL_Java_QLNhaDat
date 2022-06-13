@@ -8,12 +8,12 @@ import java.util.Date;
 
 public class Transaction {
 
-    protected int t_id;
+    protected int t_id;  // id giao dich
     protected Date t_date;
     protected float t_price;
     protected String t_type;
     protected float t_area;
-    protected int id;
+    protected int id; // id nhan vien
     protected int type;
 
     public Transaction() {
@@ -39,6 +39,15 @@ public class Transaction {
         this.type = type;
     }
 
+    public Transaction(int t_id, Date t_date, float t_price, String t_type, float t_area, int id) {
+        this.t_id = t_id;
+        this.t_date = t_date;
+        this.t_price = t_price;
+        this.t_type = t_type;
+        this.t_area = t_area;
+        this.id = id;
+    }
+ 
     public int getT_id() {
         return t_id;
     }
@@ -91,7 +100,9 @@ public class Transaction {
     public float getMoney() {
         return getT_price() * getT_area();
     }
-
+    
+    
+    
     @Override
     public String toString() {
         return "Transaction{" + "t_id=" + t_id + ", t_date=" + t_date + ", t_price=" + t_price + ", t_type=" + t_type + ", t_area=" + t_area + ", id=" + id + ", type=" + type + '}';

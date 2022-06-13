@@ -135,6 +135,11 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
         jLabel6.setText("Diện tích:");
 
         txtMaDG.setEnabled(false);
+        txtMaDG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMaDGActionPerformed(evt);
+            }
+        });
 
         txtDonGia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -433,7 +438,11 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
         } else {
             tt = dg * dt;
         }
-        Transaction x = new Transaction(ngay, dg, ld, dt, idUser);
+      
+        //Transaction(int t_id, Date t_date, float t_price, String t_type, float t_area, int id) 
+        int id_H = Integer.parseInt(txtMaDG.getText()); 
+        
+        Transaction x = new Transaction(id_H, ngay, dg, ld, dt, idUser);
 
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (responseConfirm == JOptionPane.YES_OPTION) {
@@ -484,7 +493,21 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
         model.fireTableDataChanged();
         for (int i = 0; i < transactions.size(); i++) {
             Transaction t = transactions.get(i);
-            model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+            String ld = cbLoaiDat.getSelectedItem().toString();
+            float tt=0;
+            float dg=t.getT_price();
+            float dt = t.getT_area();
+            String x=t.getT_type();
+            //System.out.println("Loại nhà là gì: "+x);
+            if(x.equalsIgnoreCase("thuong"))
+            {
+                tt = (float) (dg * dt )*0.9f;
+            }
+            else
+            {
+                tt = dg * dt;
+            }
+            model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
         }
     }//GEN-LAST:event_formWindowOpened
 
@@ -500,14 +523,32 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
                 formWindowOpened(null);
             } else {
                 Transaction t = HomeTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
+                float dg=t.getT_price();
+                String ld = cbLoaiDat.getSelectedItem().toString();
+                float tt=0;
+                float dt = t.getT_area();
+                String x=t.getT_type();
+                //System.out.println("Loại nhà là gì: "+x);
+                if(x.equalsIgnoreCase("thuong"))
+                {
+                    tt = (float) (dg * dt )*0.9f;
+                }
+                else
+                {
+                    tt = dg * dt;
+                }
                 SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
                 model.getDataVector().removeAllElements();
                 model.fireTableDataChanged();
-                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), t.getMoney()});
+                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
             }
         }
     }//GEN-LAST:event_txtTimKiemKeyPressed
+
+    private void txtMaDGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaDGActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaDGActionPerformed
 
     /**
      * @param args the command line arguments
