@@ -10,10 +10,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
 import javax.swing.Timer;
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Controller.TransactionController;
@@ -21,11 +18,11 @@ import quanlynhadat.Models.Transaction;
 import quanlynhadat.views.Login;
 
 public class TransactionManagementFrame extends javax.swing.JDialog {
-    
+
     static List<Transaction> list = new ArrayList();
     DefaultTableModel model = new DefaultTableModel();
     int money = 0;
-    
+
     public TransactionManagementFrame(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -58,7 +55,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
             txtSum.setText(String.valueOf(money));
         }
     }
-    
+
     private void addYear(String year) {
         int dem = 0;
         for (int i = 0; i < cbYear.getItemCount(); i++) {
@@ -80,7 +77,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
             addYear(sdf1.format(list.get(i).getT_date()));
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -98,7 +95,6 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         lbStatusCaps = new javax.swing.JLabel();
         lbDate = new javax.swing.JLabel();
         lbTime = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblHoachToan = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -114,11 +110,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-<<<<<<< HEAD
         jMenuItem6 = new javax.swing.JMenuItem();
-=======
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -171,7 +163,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         }
 
         cbMonth.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        cbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "   ", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
         cbMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HienThiDLTheoThang(evt);
@@ -227,13 +219,6 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
                 .addComponent(lbDate, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(lbTime, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jButton2.setText("Quay lại");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -335,16 +320,9 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         jMenuItem5.setEnabled(false);
         jMenu4.add(jMenuItem5);
 
-<<<<<<< HEAD
         jMenuItem6.setText("Từ giao dịch nhà");
         jMenuItem6.setEnabled(false);
         jMenu4.add(jMenuItem6);
-=======
-        jCheckBoxMenuItem1.setText("Từ giao dịch nhà");
-        jCheckBoxMenuItem1.setEnabled(false);
-        jCheckBoxMenuItem1.setRequestFocusEnabled(false);
-        jMenu4.add(jCheckBoxMenuItem1);
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
 
         jMenuBar1.add(jMenu4);
 
@@ -372,7 +350,6 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton1)
-<<<<<<< HEAD
                         .addGap(29, 29, 29)
                         .addComponent(lblMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -381,34 +358,15 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                        .addGap(18, 18, 18)
-                        .addComponent(lblMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addComponent(cbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(txtSum, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
-<<<<<<< HEAD
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,8 +384,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSum, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -443,19 +400,20 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         System.out.println(cbMonth.getSelectedItem() + " - " + cbMonth.getItemCount());
         System.out.println("Month = " + month + ", Year = " + year);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        
-        if (year.trim().equals("")){
+
+        if (year.trim().compareTo("") == 0) {
             cbYear.setSelectedIndex(1);
             year = (String) cbYear.getSelectedItem();
             System.out.println("Month = " + month + ", Year = " + year);
         }
-        
-        if (month.compareTo(" ") == 0) {
+
+        if (month.trim().compareTo("") == 0) {
             list = TransactionController.getAllTransactionByYear(year);
         } else {
             list = TransactionController.getAllTransactionByMonthYear(year, month);
         }
         model.setRowCount(0);
+        money = 0;
         for (int i = 0; i < list.size(); i++) {
             String type = "";
             if (list.get(i).getType() == 1) {
@@ -480,13 +438,14 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         String year = (String) cbYear.getSelectedItem();
         System.out.println("Month = " + month + ", Year = " + year);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        
-        if (month.compareTo(" ") == 0) {
+
+        if (month.trim().compareTo("") == 0) {
             list = TransactionController.getAllTransactionByYear(year);
         } else {
             list = TransactionController.getAllTransactionByMonthYear(year, month);
         }
         model.setRowCount(0);
+        money = 0;
         for (int i = 0; i < list.size(); i++) {
             String type = "";
             if (list.get(i).getType() == 1) {
@@ -515,7 +474,6 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-<<<<<<< HEAD
         this.dispose();
         UsersManagement usersManagement = new UsersManagement();
         usersManagement.setVisible(true);
@@ -525,34 +483,16 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
         this.dispose();
         AddUserFrame addUserFrame = new AddUserFrame();
         addUserFrame.setVisible(true);
-=======
-        UsersManagement usersManagement = new UsersManagement();
-        usersManagement.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        AddUserFrame addUserFrame = new AddUserFrame();
-        addUserFrame.setVisible(true);
-        this.dispose();
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        
+
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Phiên bản 1.0", "Giới thiệu", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        this.dispose();
-        UsersManagement usersManagement = new UsersManagement();
-        usersManagement.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-<<<<<<< HEAD
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         isCapsOn = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
@@ -580,9 +520,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosed
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
-    
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -597,18 +535,13 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
             }
         });
     }
-    
+
     private boolean isCapsOn;
     private Timer timerNow;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cbMonth;
     private javax.swing.JComboBox<String> cbYear;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-<<<<<<< HEAD
-=======
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
@@ -621,10 +554,7 @@ public class TransactionManagementFrame extends javax.swing.JDialog {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-<<<<<<< HEAD
     private javax.swing.JMenuItem jMenuItem6;
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

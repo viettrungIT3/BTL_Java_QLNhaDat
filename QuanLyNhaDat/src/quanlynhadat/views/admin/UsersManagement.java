@@ -73,11 +73,7 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-<<<<<<< HEAD
         jMenuItem6 = new javax.swing.JMenuItem();
-=======
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -244,24 +240,14 @@ public class UsersManagement extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-<<<<<<< HEAD
                 .addGap(216, 216, 216))
-=======
-                .addGap(259, 259, 259))
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-<<<<<<< HEAD
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1)
                 .addContainerGap(26, Short.MAX_VALUE))
-=======
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addContainerGap(28, Short.MAX_VALUE))
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/home2.png"))); // NOI18N
@@ -341,16 +327,9 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenuItem5.setEnabled(false);
         jMenu4.add(jMenuItem5);
 
-<<<<<<< HEAD
         jMenuItem6.setText("Từ giao dịch nhà");
         jMenuItem6.setEnabled(false);
         jMenu4.add(jMenuItem6);
-=======
-        jCheckBoxMenuItem1.setText("Từ giao dịch nhà");
-        jCheckBoxMenuItem1.setEnabled(false);
-        jCheckBoxMenuItem1.setRequestFocusEnabled(false);
-        jMenu4.add(jCheckBoxMenuItem1);
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
 
         jMenuBar1.add(jMenu4);
 
@@ -375,7 +354,6 @@ public class UsersManagement extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
@@ -383,15 +361,6 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
@@ -399,7 +368,6 @@ public class UsersManagement extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-<<<<<<< HEAD
                             .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING)
@@ -416,37 +384,13 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnImport)
                                     .addGap(18, 18, 18)
                                     .addComponent(btnExport)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1)))))
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
                 .addContainerGap(30, Short.MAX_VALUE))
-=======
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addComponent(btnShowTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnImport)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnExport)
-                                .addGap(38, 38, 38)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(172, 172, 172)
-                                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(93, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)))
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -455,18 +399,10 @@ public class UsersManagement extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
-<<<<<<< HEAD
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(btnExport)
                     .addComponent(btnImport)
-=======
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9)
-                        .addComponent(btnExport)
-                        .addComponent(btnImport))
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,17 +429,12 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(btnShowTransactions))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< HEAD
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnShowTransactions)
+                        .addGap(0, 84, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(btnExit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -533,7 +464,7 @@ public class UsersManagement extends javax.swing.JFrame {
             }
         });
         timerNow.start();
-        
+
         List<Account> accounts = List.copyOf(AccountController.getAllAccount());
 
         DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
@@ -542,7 +473,7 @@ public class UsersManagement extends javax.swing.JFrame {
             Account account = accounts.get(i);
             if (account.getRole_id() != 1) {
                 stt++;
-                model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên",account.getStatus()});
+                model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên", account.getStatus()});
             }
         }
     }//GEN-LAST:event_formWindowOpened
@@ -623,8 +554,8 @@ public class UsersManagement extends javax.swing.JFrame {
         }
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (responseConfirm == JOptionPane.YES_OPTION) {
-            boolean status=false;
-            if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()),status)) {
+            boolean status = false;
+            if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()), status)) {
                 JOptionPane.showConfirmDialog(null, "Xóa tài khoản thất bại", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -727,37 +658,19 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_miExitActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-<<<<<<< HEAD
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         this.dispose();
         AddUserFrame addUserFrame = new AddUserFrame();
         addUserFrame.setVisible(true);
-=======
-        // TODO add your handling code here:
-        UsersManagement usersManagement = new UsersManagement();
-        usersManagement.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        AddUserFrame addUserFrame = new AddUserFrame();
-        addUserFrame.setVisible(true);
-        this.dispose();
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         this.dispose();
-<<<<<<< HEAD
         TransactionManagementFrame dialog = new TransactionManagementFrame(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
-=======
-        TransactionManagementFrame transactionManagementFrame = new TransactionManagementFrame(this, true);
-        transactionManagementFrame.setVisible(true);
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -811,7 +724,6 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JButton btnExport;
     private javax.swing.JButton btnImport;
     private javax.swing.JButton btnShowTransactions;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -828,10 +740,7 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-<<<<<<< HEAD
     private javax.swing.JMenuItem jMenuItem6;
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
