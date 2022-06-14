@@ -119,11 +119,18 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
+<<<<<<< HEAD
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch nh&#xe0;"/>
+                <Property name="enabled" type="boolean" value="false"/>
+=======
             <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch nh&#xe0;"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="requestFocusEnabled" type="boolean" value="false"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -178,6 +185,51 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Component id="btnAdd" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="btnEdit" min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
+                      <Component id="btnDelete" min="-2" pref="90" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="txtUsername" alignment="0" pref="120" max="32767" attributes="0"/>
+                          <Component id="txtName" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtId" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPassword" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="btnShowTransactions" max="32767" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="309" max="-2" attributes="0"/>
+                      <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtSearch" min="-2" pref="112" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="btnExit" min="-2" pref="256" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="btnImport" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnExport" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+=======
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnEdit" min="-2" pref="110" max="-2" attributes="0"/>
@@ -218,12 +270,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                               <Component id="btnExit" min="-2" pref="256" max="-2" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                           </Group>
                       </Group>
                       <EmptySpace pref="93" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
               </Group>
+<<<<<<< HEAD
+              <EmptySpace pref="30" max="32767" attributes="0"/>
+=======
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
           </Group>
           <Component id="jPanel1" max="32767" attributes="0"/>
           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
@@ -234,6 +291,13 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnExport" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnImport" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+=======
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -241,6 +305,7 @@
                       <Component id="btnImport" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="txtSearch" min="-2" max="-2" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               </Group>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -276,9 +341,15 @@
                   </Group>
                   <Component id="jScrollPane1" alignment="0" min="-2" pref="394" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnExit" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+=======
               <EmptySpace max="32767" attributes="0"/>
               <Component id="btnExit" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -306,12 +377,12 @@
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="30" minWidth="40" prefWidth="40" resizable="true">
+                <Column maxWidth="30" minWidth="35" prefWidth="35" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="40" minWidth="40" prefWidth="40" resizable="true">
+                <Column maxWidth="30" minWidth="35" prefWidth="35" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -321,12 +392,17 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="100" minWidth="150" prefWidth="150" resizable="true">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="100" minWidth="100" prefWidth="100" resizable="true">
+                <Column maxWidth="80" minWidth="80" prefWidth="80" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -515,16 +591,26 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="216" max="-2" attributes="0"/>
+=======
                   <EmptySpace min="-2" pref="259" max="-2" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="26" max="32767" attributes="0"/>
+=======
                   <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="28" max="32767" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               </Group>
           </Group>
         </DimensionLayout>

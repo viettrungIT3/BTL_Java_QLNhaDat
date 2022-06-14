@@ -1,9 +1,16 @@
 package quanlynhadat.views.admin;
 
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Controller.AccountFileController;
@@ -66,7 +73,11 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+<<<<<<< HEAD
+        jMenuItem6 = new javax.swing.JMenuItem();
+=======
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
 
@@ -103,18 +114,15 @@ public class UsersManagement extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbUser);
         if (tbUser.getColumnModel().getColumnCount() > 0) {
-            tbUser.getColumnModel().getColumn(0).setMinWidth(40);
-            tbUser.getColumnModel().getColumn(0).setPreferredWidth(40);
+            tbUser.getColumnModel().getColumn(0).setMinWidth(35);
+            tbUser.getColumnModel().getColumn(0).setPreferredWidth(35);
             tbUser.getColumnModel().getColumn(0).setMaxWidth(30);
-            tbUser.getColumnModel().getColumn(1).setMinWidth(40);
-            tbUser.getColumnModel().getColumn(1).setPreferredWidth(40);
-            tbUser.getColumnModel().getColumn(1).setMaxWidth(40);
-            tbUser.getColumnModel().getColumn(3).setMinWidth(150);
-            tbUser.getColumnModel().getColumn(3).setPreferredWidth(150);
-            tbUser.getColumnModel().getColumn(3).setMaxWidth(100);
-            tbUser.getColumnModel().getColumn(4).setMinWidth(100);
-            tbUser.getColumnModel().getColumn(4).setPreferredWidth(100);
-            tbUser.getColumnModel().getColumn(4).setMaxWidth(100);
+            tbUser.getColumnModel().getColumn(1).setMinWidth(35);
+            tbUser.getColumnModel().getColumn(1).setPreferredWidth(35);
+            tbUser.getColumnModel().getColumn(1).setMaxWidth(30);
+            tbUser.getColumnModel().getColumn(4).setMinWidth(80);
+            tbUser.getColumnModel().getColumn(4).setPreferredWidth(80);
+            tbUser.getColumnModel().getColumn(4).setMaxWidth(80);
         }
 
         jLabel2.setText("ID:");
@@ -236,14 +244,24 @@ public class UsersManagement extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
+<<<<<<< HEAD
+                .addGap(216, 216, 216))
+=======
                 .addGap(259, 259, 259))
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addContainerGap(26, Short.MAX_VALUE))
+=======
                 .addGap(19, 19, 19)
                 .addComponent(jLabel1)
                 .addContainerGap(28, Short.MAX_VALUE))
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/home2.png"))); // NOI18N
@@ -323,10 +341,16 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenuItem5.setEnabled(false);
         jMenu4.add(jMenuItem5);
 
+<<<<<<< HEAD
+        jMenuItem6.setText("Từ giao dịch nhà");
+        jMenuItem6.setEnabled(false);
+        jMenu4.add(jMenuItem6);
+=======
         jCheckBoxMenuItem1.setText("Từ giao dịch nhà");
         jCheckBoxMenuItem1.setEnabled(false);
         jCheckBoxMenuItem1.setRequestFocusEnabled(false);
         jMenu4.add(jCheckBoxMenuItem1);
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
 
         jMenuBar1.add(jMenu4);
 
@@ -351,6 +375,15 @@ public class UsersManagement extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
+<<<<<<< HEAD
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -358,6 +391,7 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4)
@@ -365,6 +399,31 @@ public class UsersManagement extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+<<<<<<< HEAD
+                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPassword)))
+                    .addComponent(btnShowTransactions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(309, 309, 309)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnImport)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnExport)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1)))))
+                .addContainerGap(30, Short.MAX_VALUE))
+=======
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                             .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
@@ -387,6 +446,7 @@ public class UsersManagement extends javax.swing.JFrame {
                                 .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(93, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)))
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -395,11 +455,18 @@ public class UsersManagement extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11)
+<<<<<<< HEAD
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(btnExport)
+                    .addComponent(btnImport)
+=======
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(btnExport)
                         .addComponent(btnImport))
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -428,9 +495,15 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnShowTransactions))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnExit)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+=======
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnExit)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -440,6 +513,27 @@ public class UsersManagement extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        isCapsOn = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
+        lbStatusCaps.setEnabled(isCapsOn);
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat simpleTimeFormat = new SimpleDateFormat("HH:mm:ss");
+
+        Calendar calendar = Calendar.getInstance();
+        Date currentTime = calendar.getTime();
+        lbDate.setText(simpleDateFormat.format(currentTime));
+        lbTime.setText(simpleTimeFormat.format(currentTime));
+
+        timerNow = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Calendar calendar = Calendar.getInstance();
+                Date currentTime = calendar.getTime();
+                lbTime.setText(simpleTimeFormat.format(currentTime));
+            }
+        });
+        timerNow.start();
+        
         List<Account> accounts = List.copyOf(AccountController.getAllAccount());
 
         DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
@@ -633,6 +727,15 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_miExitActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+<<<<<<< HEAD
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        this.dispose();
+        AddUserFrame addUserFrame = new AddUserFrame();
+        addUserFrame.setVisible(true);
+=======
         // TODO add your handling code here:
         UsersManagement usersManagement = new UsersManagement();
         usersManagement.setVisible(true);
@@ -643,12 +746,18 @@ public class UsersManagement extends javax.swing.JFrame {
         AddUserFrame addUserFrame = new AddUserFrame();
         addUserFrame.setVisible(true);
         this.dispose();
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         this.dispose();
+<<<<<<< HEAD
+        TransactionManagementFrame dialog = new TransactionManagementFrame(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+=======
         TransactionManagementFrame transactionManagementFrame = new TransactionManagementFrame(this, true);
         transactionManagementFrame.setVisible(true);
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -692,6 +801,8 @@ public class UsersManagement extends javax.swing.JFrame {
         });
     }
 
+    private boolean isCapsOn;
+    private Timer timerNow;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
@@ -717,6 +828,10 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+<<<<<<< HEAD
+    private javax.swing.JMenuItem jMenuItem6;
+=======
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

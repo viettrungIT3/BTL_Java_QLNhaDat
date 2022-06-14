@@ -159,7 +159,7 @@ public class TransactionController {
         try {
             Connection conn = ConnectDB.getConnection();
             String sqlHome = "SELECT * FROM HOME_TRANSACTIONS where YEAR(t_date)='" + year + "' and Month(t_date)='" + month + "'ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
-            String sqlland = "SELECT * FROM LAND_TRANSACTIONS where AND YEAR(t_date)='" + year + "' and Month(t_date)='" + month + "'ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
+            String sqlland = "SELECT * FROM LAND_TRANSACTIONS where YEAR(t_date)='" + year + "' and Month(t_date)='" + month + "'ORDER BY FORMAT(t_date, 'yyyy/MM/dd') DESC, t_id, t_type, t_price";
             Statement stm = conn.createStatement();
             ResultSet rs = stm.executeQuery(sqlHome);
             while (rs.next()) {

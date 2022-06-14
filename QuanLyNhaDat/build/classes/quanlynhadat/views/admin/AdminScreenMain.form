@@ -207,11 +207,10 @@
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch nh&#xe0;"/>
                 <Property name="enabled" type="boolean" value="false"/>
-                <Property name="requestFocusEnabled" type="boolean" value="false"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -271,7 +270,11 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
+<<<<<<< HEAD
+                  <Component id="jLabel1" pref="0" max="32767" attributes="0"/>
+=======
                   <Component id="jLabel1" alignment="0" pref="0" max="32767" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -280,10 +283,18 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel2" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" pref="442" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+=======
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="507" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -342,7 +353,10 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/quanlynhadat/views/icons/anh_nen.PNG"/>
         </Property>
+<<<<<<< HEAD
+=======
         <Property name="text" type="java.lang.String" value="jLabel1"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
       </Properties>
     </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
@@ -358,7 +372,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="459" max="-2" attributes="0"/>
+<<<<<<< HEAD
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
+=======
                   <EmptySpace max="32767" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                   <Component id="btnDangXuat" min="-2" pref="124" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -372,7 +390,11 @@
                       <Component id="btnDangXuat" min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
+<<<<<<< HEAD
+                  <EmptySpace pref="10" max="32767" attributes="0"/>
+=======
                   <EmptySpace pref="27" max="32767" attributes="0"/>
+>>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
               </Group>
           </Group>
         </DimensionLayout>
