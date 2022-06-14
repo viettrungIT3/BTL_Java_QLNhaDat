@@ -581,21 +581,21 @@ public class UsersManagement extends javax.swing.JFrame {
                     Account account = accounts.get(i);
                     if (account.getRole_id() != 1) {
                         stt++;
-                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên", account.getStatus()});
                     }
                 }
             } else {
                 DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
                 model.setRowCount(0);
 
-                List<Account> accounts = AccountController.getAccountsLikeUsername(txtSearch.getText());
+                List<Account> accounts = AccountController.getAccountsLikeUsername(txtSearch.getText().trim());
 
                 int stt = 0;
                 for (int i = 0; i < accounts.size(); i++) {
                     Account account = accounts.get(i);
                     if (account.getRole_id() != 1) {
                         stt++;
-                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên"});
+                        model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên", account.getStatus()});
                     }
                 }
             }
