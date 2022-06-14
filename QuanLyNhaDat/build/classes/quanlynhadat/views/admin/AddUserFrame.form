@@ -193,11 +193,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="btnReset" min="-2" max="-2" attributes="0"/>
-<<<<<<< HEAD
                       <EmptySpace pref="76" max="32767" attributes="0"/>
-=======
-                      <EmptySpace pref="78" max="32767" attributes="0"/>
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                       <Component id="btnAdd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
                       <Component id="btnExit" min="-2" max="-2" attributes="0"/>
@@ -206,10 +202,7 @@
               <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
           </Group>
           <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
-<<<<<<< HEAD
           <Component id="jPanel2" alignment="1" max="32767" attributes="0"/>
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -237,12 +230,8 @@
                   <Component id="btnExit" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                   <Component id="btnReset" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
-<<<<<<< HEAD
               <EmptySpace pref="132" max="32767" attributes="0"/>
               <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-=======
-              <EmptySpace pref="198" max="32767" attributes="0"/>
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
           </Group>
       </Group>
     </DimensionLayout>
@@ -364,7 +353,6 @@
         </Component>
       </SubComponents>
     </Container>
-<<<<<<< HEAD
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -412,7 +400,5 @@
         </Component>
       </SubComponents>
     </Container>
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
   </SubComponents>
 </Form>

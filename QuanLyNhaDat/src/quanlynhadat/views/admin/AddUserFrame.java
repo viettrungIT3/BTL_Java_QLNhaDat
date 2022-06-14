@@ -47,7 +47,6 @@ public class AddUserFrame extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-<<<<<<< HEAD
         jPanel2 = new javax.swing.JPanel();
         lbStatusCaps = new javax.swing.JLabel();
         lbDate = new javax.swing.JLabel();
@@ -68,8 +67,6 @@ public class AddUserFrame extends javax.swing.JFrame {
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("THÊM TÀI KHOẢN NGƯỜI DÙNG");
@@ -140,7 +137,6 @@ public class AddUserFrame extends javax.swing.JFrame {
                 .addGap(55, 55, 55))
         );
 
-<<<<<<< HEAD
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
         lbStatusCaps.setText("CAPS");
@@ -264,8 +260,6 @@ public class AddUserFrame extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -285,20 +279,13 @@ public class AddUserFrame extends javax.swing.JFrame {
                             .addComponent(txtPassword)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnReset)
-<<<<<<< HEAD
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
-=======
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
                         .addComponent(btnAdd)
                         .addGap(75, 75, 75)
                         .addComponent(btnExit)))
                 .addGap(198, 198, 198))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-<<<<<<< HEAD
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-=======
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -321,12 +308,8 @@ public class AddUserFrame extends javax.swing.JFrame {
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReset, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 132, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-=======
-                .addContainerGap(198, Short.MAX_VALUE))
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         );
 
         pack();
@@ -351,11 +334,7 @@ public class AddUserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnResetActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-<<<<<<< HEAD
         //TODO add your handling code here:
-=======
-         //TODO add your handling code here:
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         if (txtName.getText().trim().compareTo("") == 0) {
             JOptionPane.showConfirmDialog(null, "Họ tên không được để trống", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
@@ -376,7 +355,6 @@ public class AddUserFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Mật khẩu phải có ít nhất 8 ký tự", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
-<<<<<<< HEAD
         Account account = new Account(txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2, true);
         System.out.println(account);
         if (!AccountController.CreateNewAccount(account)) {
@@ -385,20 +363,6 @@ public class AddUserFrame extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thất bại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
             return;
         }
-=======
-       Account account = new Account( txtName.getText(), txtUsername.getText(), String.valueOf(txtPassword.getPassword()), 2,true);
-        System.out.println(account);
-        if (!AccountController.CreateNewAccount(account)) {
-             System.out.println("-----");
-         System.out.println(account);
-            JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thất bại", "Lỗi thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        else
-        {
-            System.out.println("ok roi day");
-        }
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
         int responseStatus = JOptionPane.showConfirmDialog(null, "Thêm tài khoản người dùng thành công", "Thêm mới", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
         if (responseStatus == JOptionPane.OK_OPTION) {
             this.dispose();
@@ -406,11 +370,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             usersManagement.setVisible(true);
         }
         System.out.println("-----");
-<<<<<<< HEAD
         System.out.println(account);
-=======
-         System.out.println(account);
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void miOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miOpenActionPerformed
@@ -515,7 +475,6 @@ public class AddUserFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-<<<<<<< HEAD
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -537,9 +496,6 @@ public class AddUserFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem miNew;
     private javax.swing.JMenuItem miOpen;
     private javax.swing.JMenuItem miSave;
-=======
-    private javax.swing.JPanel jPanel1;
->>>>>>> 6080c88b247463d17c978ff84d42f28bf2441b80
     private javax.swing.JTextField txtName;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
