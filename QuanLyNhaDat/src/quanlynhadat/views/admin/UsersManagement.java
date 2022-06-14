@@ -384,12 +384,12 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane1)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(btnImport)
                                     .addGap(18, 18, 18)
                                     .addComponent(btnExport)
-                                    .addGap(0, 0, Short.MAX_VALUE))
-                                .addComponent(jScrollPane1)))))
+                                    .addGap(0, 0, Short.MAX_VALUE))))))
                 .addContainerGap(30, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -429,11 +429,12 @@ public class UsersManagement extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnAdd)
                         .addGap(18, 18, 18)
-                        .addComponent(btnShowTransactions))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnShowTransactions)
+                        .addGap(0, 84, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
                 .addComponent(btnExit)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -463,7 +464,7 @@ public class UsersManagement extends javax.swing.JFrame {
             }
         });
         timerNow.start();
-        
+
         List<Account> accounts = List.copyOf(AccountController.getAllAccount());
 
         DefaultTableModel model = (DefaultTableModel) tbUser.getModel();
@@ -472,7 +473,7 @@ public class UsersManagement extends javax.swing.JFrame {
             Account account = accounts.get(i);
             if (account.getRole_id() != 1) {
                 stt++;
-                model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên",account.getStatus()});
+                model.addRow(new Object[]{stt, account.getId(), account.getFullname(), account.getUsername(), "Nhân viên", account.getStatus()});
             }
         }
     }//GEN-LAST:event_formWindowOpened
@@ -553,8 +554,8 @@ public class UsersManagement extends javax.swing.JFrame {
         }
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn muốn xóa không?", "Xóa tài khoản", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if (responseConfirm == JOptionPane.YES_OPTION) {
-            boolean status=false;
-            if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()),status)) {
+            boolean status = false;
+            if (!AccountController.deleteAccount(Integer.parseInt(txtId.getText()), status)) {
                 JOptionPane.showConfirmDialog(null, "Xóa tài khoản thất bại", "Xóa tài khoản", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
                 return;
             }
@@ -657,7 +658,7 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_miExitActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
+
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
