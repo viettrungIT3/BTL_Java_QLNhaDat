@@ -31,16 +31,16 @@ public class AccountFileController {
         AccountController accountController = new AccountController();
         List<Account> a2 = accountFile.read();
         for (Account a : a2) {
-            System.out.println(a.toString());
+//            System.out.println(a.toString());
             if (!accountController.checkUsername(a.getUsername())) {
                 if (accountController.CreateNewAccount((Account) a)) {
-                    System.out.println("Create new an account success! " + a.toString());
+//                    System.out.println("Create new an account success! ");
                 }
             } else {
                 if (accountController.updateAccount(a)) {
-                    System.out.println("Update  account success! " + a.toString());
+//                    System.out.println("Update account success! ");
                 } else {
-                    System.out.println("Update  account false! " + a.toString());
+//                    System.out.println("Update account false! ");
                 }
             }
         }

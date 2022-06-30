@@ -456,7 +456,7 @@ public class AdminScreenMain extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         this.dispose();
-        TransactionManagementFrame dialog = new TransactionManagementFrame(new javax.swing.JFrame(), true);
+        TransactionsRevenueFrame dialog = new TransactionsRevenueFrame(new javax.swing.JFrame(), true);
         dialog.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
