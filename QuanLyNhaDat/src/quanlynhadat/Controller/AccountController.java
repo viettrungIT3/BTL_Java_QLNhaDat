@@ -47,8 +47,8 @@ public class AccountController {
     
     public static List<Account> getAccountsLikeUsername(String name) {
         List<Account> accounts = new ArrayList<>();
-        String sql = "select * from USERS where status_u = 1";
-        //String sql = "select * from USERS where username LIKE N'%" + name + "%'";
+//        String sql = "select * from USERS where status_u = 1";
+        String sql = "select * from USERS where username LIKE N'%" + name + "%'";
         try {
             Connection conn = getConnection();
             Statement stmt = conn.createStatement();

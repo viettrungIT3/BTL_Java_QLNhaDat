@@ -438,10 +438,10 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
         } else {
             tt = dg * dt;
         }
-      
+
         //Transaction(int t_id, Date t_date, float t_price, String t_type, float t_area, int id) 
-        int id_H = Integer.parseInt(txtMaDG.getText()); 
-        
+        int id_H = Integer.parseInt(txtMaDG.getText());
+
         Transaction x = new Transaction(id_H, ngay, dg, ld, dt, idUser);
 
         int responseConfirm = JOptionPane.showConfirmDialog(null, "Bạn có chắc chắn sửa không?", "Sửa giao dịch", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -494,17 +494,14 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
         for (int i = 0; i < transactions.size(); i++) {
             Transaction t = transactions.get(i);
             String ld = cbLoaiDat.getSelectedItem().toString();
-            float tt=0;
-            float dg=t.getT_price();
+            float tt = 0;
+            float dg = t.getT_price();
             float dt = t.getT_area();
-            String x=t.getT_type();
+            String x = t.getT_type();
             //System.out.println("Loại nhà là gì: "+x);
-            if(x.equalsIgnoreCase("thuong"))
-            {
-                tt = (float) (dg * dt )*0.9f;
-            }
-            else
-            {
+            if (x.equalsIgnoreCase("thuong")) {
+                tt = (float) (dg * dt) * 0.9f;
+            } else {
                 tt = dg * dt;
             }
             model.addRow(new Object[]{i + 1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
@@ -516,32 +513,67 @@ public class HomeTransactionFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTimKiemActionPerformed
 
     private void txtTimKiemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTimKiemKeyPressed
+//        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+//            if ("".equals(txtTimKiem.getText().trim()) || txtTimKiem == null) {
+//                DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
+//                model.setRowCount(0);
+//                formWindowOpened(null);
+//            } else {
+//                Transaction t = HomeTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
+//                float dg=t.getT_price();
+//                String ld = cbLoaiDat.getSelectedItem().toString();
+//                float tt=0;
+//                float dt = t.getT_area();
+//                String x=t.getT_type();
+//                //System.out.println("Loại nhà là gì: "+x);
+//                if(x.equalsIgnoreCase("thuong"))
+//                {
+//                    tt = (float) (dg * dt )*0.9f;
+//                }
+//                else
+//                {
+//                    tt = dg * dt;
+//                }
+//                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+//                DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
+//                model.getDataVector().removeAllElements();
+//                model.fireTableDataChanged();
+//                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
+//            }
+//        }
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if ("".equals(txtTimKiem.getText().trim()) || txtTimKiem == null) {
                 DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
                 model.setRowCount(0);
                 formWindowOpened(null);
+
             } else {
-                Transaction t = HomeTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
-                float dg=t.getT_price();
-                String ld = cbLoaiDat.getSelectedItem().toString();
-                float tt=0;
-                float dt = t.getT_area();
-                String x=t.getT_type();
-                //System.out.println("Loại nhà là gì: "+x);
-                if(x.equalsIgnoreCase("thuong"))
-                {
-                    tt = (float) (dg * dt )*0.9f;
+                try {
+                    Transaction t = HomeTransactionController.getTransactionByUser(idUser, txtTimKiem.getText());
+                    String x = t.getT_type();
+                    float dg = t.getT_price();
+                    String ld = cbLoaiDat.getSelectedItem().toString();
+                    float tt = 0;
+                    float dt = t.getT_area();
+                    //System.out.println("Loại nhà là gì: "+x);
+                    if (x.equalsIgnoreCase("thuong")) {
+                        tt = (float) (dg * dt) * 0.9f;
+                    } else {
+                        tt = dg * dt;
+                    }
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                    DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
+                    model.getDataVector().removeAllElements();
+                    model.fireTableDataChanged();
+                    model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
+                } catch (Exception ex) {
+                    JOptionPane.showConfirmDialog(null, "Không tìm thấy giao dịch nào", "Tìm kiêm", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
+                    model.setRowCount(0);
+                    formWindowOpened(null);
+
                 }
-                else
-                {
-                    tt = dg * dt;
-                }
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-                DefaultTableModel model = (DefaultTableModel) tbGDNha.getModel();
-                model.getDataVector().removeAllElements();
-                model.fireTableDataChanged();
-                model.addRow(new Object[]{1, t.getT_id(), sdf.format(t.getT_date()), t.getT_price(), t.getT_type(), t.getT_area(), tt});
+
             }
         }
     }//GEN-LAST:event_txtTimKiemKeyPressed

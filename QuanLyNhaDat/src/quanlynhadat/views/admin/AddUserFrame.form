@@ -15,42 +15,24 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="miNew">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+N"/>
-                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/quanlynhadat/views/icons/new.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="78"/>
-                <Property name="text" type="java.lang.String" value="New"/>
+                <Property name="text" type="java.lang.String" value="Trang ch&#x1ee7;"/>
               </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="miOpen">
               <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+O"/>
-                </Property>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/quanlynhadat/views/icons/open.png"/>
+                  <Image iconType="3" name="/quanlynhadat/views/icons/search-icon-16.png"/>
                 </Property>
                 <Property name="mnemonic" type="int" value="79"/>
-                <Property name="text" type="java.lang.String" value="Open"/>
+                <Property name="text" type="java.lang.String" value="Gi&#x1edb;i thi&#x1ec7;u"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="miOpenActionPerformed"/>
               </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="miSave">
-              <Properties>
-                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
-                  <KeyStroke key="Ctrl+S"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/quanlynhadat/views/icons/save.png"/>
-                </Property>
-                <Property name="mnemonic" type="int" value="83"/>
-                <Property name="text" type="java.lang.String" value="Save"/>
-              </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
@@ -116,14 +98,18 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch &#x111;&#x1ea5;t"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#x1eeb; giao d&#x1ecb;ch nh&#xe0;"/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
