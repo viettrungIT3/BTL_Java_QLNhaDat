@@ -14,8 +14,11 @@ import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import quanlynhadat.Controller.AccountController;
 import quanlynhadat.Controller.LandTransactionController;
+import quanlynhadat.Models.Account;
 import quanlynhadat.Models.Transaction;
 import quanlynhadat.views.Login;
+import static quanlynhadat.views.admin.HomeTransactionsRevenueFrame.list;
+import static quanlynhadat.views.admin.TransactionsRevenueFrame.list;
 
 public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
 
@@ -94,7 +97,6 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
         jMenu1 = new javax.swing.JMenu();
         miNew = new javax.swing.JMenuItem();
         miOpen = new javax.swing.JMenuItem();
-        miSave = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         miExit = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -240,28 +242,26 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
         jMenu1.setMnemonic('H');
         jMenu1.setText("Hệ thống");
 
-        miNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/new.png"))); // NOI18N
         miNew.setMnemonic('N');
-        miNew.setText("New");
+        miNew.setText("Trang chủ");
+        miNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miNewActionPerformed(evt);
+            }
+        });
         jMenu1.add(miNew);
 
         miOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        miOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/open.png"))); // NOI18N
+        miOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/search-icon-16.png"))); // NOI18N
         miOpen.setMnemonic('O');
-        miOpen.setText("Open");
+        miOpen.setText("Giơi thiệu");
         miOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miOpenActionPerformed(evt);
             }
         });
         jMenu1.add(miOpen);
-
-        miSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        miSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/save.png"))); // NOI18N
-        miSave.setMnemonic('S');
-        miSave.setText("Save");
-        jMenu1.add(miSave);
         jMenu1.add(jSeparator1);
 
         miExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -314,7 +314,11 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
         jMenu4.add(jMenuItem5);
 
         jMenuItem6.setText("Từ giao dịch nhà");
-        jMenuItem6.setEnabled(false);
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem6);
 
         jMenuBar1.add(jMenu4);
@@ -406,9 +410,26 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
         }
         model.setRowCount(0);
         money = 0;
+        if (list.size() == 0) {
+            money = 0;
+            txtSum.setText("0");
+            return;
+        }
         String type = "Giao dịch đất";
-        for (int i = 0; i < list.size(); i++) {
-            model.addRow(new Object[]{i + 1, list.get(i).getId(), list.get(i).getT_id(), type, sdf.format(list.get(i).getT_date()), list.get(i).getMoney()});
+        for (int i = 0; i < list.size(); i++) 
+        {
+            List<Account> listE =new ArrayList<Account>();
+            listE=AccountController.getAllAccount();
+            String nameE="";
+            for(int j=0;j<listE.size();j++)
+            {
+                    if(listE.get(j).getId()==list.get(i).getId())
+                    {
+                        nameE=listE.get(j).getFullname();
+                        break;
+                    }
+            }
+            model.addRow(new Object[]{i + 1, list.get(i).getT_id(), type,nameE, sdf.format(list.get(i).getT_date()), list.get(i).getMoney()});
             money += list.get(i).getMoney();
             txtSum.setText(String.valueOf(money));
         }
@@ -431,16 +452,34 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
         }
         model.setRowCount(0);
         money = 0;
+        if (list.size() == 0) {
+            money = 0;
+            txtSum.setText("0");
+            return;
+        }
         String type = "Giao dịch đất";
-        for (int i = 0; i < list.size(); i++) {
-            model.addRow(new Object[]{i + 1, list.get(i).getId(), list.get(i).getT_id(), type, sdf.format(list.get(i).getT_date()), list.get(i).getMoney()});
+        //đã fix
+        for (int i = 0; i < list.size(); i++) 
+        {
+            List<Account> listE =new ArrayList<Account>();
+            listE=AccountController.getAllAccount();
+            String nameE="";
+            for(int j=0;j<listE.size();j++)
+            {
+                    if(listE.get(j).getId()==list.get(i).getId())
+                    {
+                        nameE=listE.get(j).getFullname();
+                        break;
+                    }
+            }
+            model.addRow(new Object[]{i + 1, list.get(i).getT_id(), type,nameE, sdf.format(list.get(i).getT_date()), list.get(i).getMoney()});
             money += list.get(i).getMoney();
             txtSum.setText(String.valueOf(money));
         }
     }//GEN-LAST:event_HienThiDLTheoNam
 
     private void miOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miOpenActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Phiên bản 1.0", "Giới thiệu", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_miOpenActionPerformed
 
     private void miExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miExitActionPerformed
@@ -499,6 +538,18 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowClosed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        this.dispose();
+        HomeTransactionsRevenueFrame dialog = new HomeTransactionsRevenueFrame(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void miNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNewActionPerformed
+        this.dispose();
+        AdminScreenMain dialog = new AdminScreenMain();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_miNewActionPerformed
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -545,7 +596,6 @@ public class LandTransactionsRevenueFrame extends javax.swing.JDialog {
     private javax.swing.JMenuItem miExit;
     private javax.swing.JMenuItem miNew;
     private javax.swing.JMenuItem miOpen;
-    private javax.swing.JMenuItem miSave;
     private javax.swing.JTable tableHachToan;
     private javax.swing.JTextField txtSum;
     // End of variables declaration//GEN-END:variables

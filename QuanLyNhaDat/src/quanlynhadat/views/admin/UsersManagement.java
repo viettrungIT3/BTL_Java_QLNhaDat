@@ -64,7 +64,6 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         miNew = new javax.swing.JMenuItem();
         miOpen = new javax.swing.JMenuItem();
-        miSave = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         miExit = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -254,28 +253,25 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenu1.setMnemonic('H');
         jMenu1.setText("Hệ thống");
 
-        miNew.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miNew.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/new.png"))); // NOI18N
         miNew.setMnemonic('N');
-        miNew.setText("New");
+        miNew.setText("Trang chủ");
+        miNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miNewActionPerformed(evt);
+            }
+        });
         jMenu1.add(miNew);
 
-        miOpen.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         miOpen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/open.png"))); // NOI18N
         miOpen.setMnemonic('O');
-        miOpen.setText("Open");
+        miOpen.setText("Giới thiệu");
         miOpen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miOpenActionPerformed(evt);
             }
         });
         jMenu1.add(miOpen);
-
-        miSave.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        miSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlynhadat/views/icons/save.png"))); // NOI18N
-        miSave.setMnemonic('S');
-        miSave.setText("Save");
-        jMenu1.add(miSave);
         jMenu1.add(jSeparator1);
 
         miExit.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_W, java.awt.event.InputEvent.CTRL_DOWN_MASK));
@@ -324,11 +320,19 @@ public class UsersManagement extends javax.swing.JFrame {
         jMenu4.add(jMenuItem3);
 
         jMenuItem5.setText("Từ giao dịch đất");
-        jMenuItem5.setEnabled(false);
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem5);
 
         jMenuItem6.setText("Từ giao dịch nhà");
-        jMenuItem6.setEnabled(false);
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem6);
 
         jMenuBar1.add(jMenu4);
@@ -647,7 +651,7 @@ public class UsersManagement extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void miOpenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miOpenActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Phiên bản 1.0", "Giới thiệu", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_miOpenActionPerformed
 
     private void miExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miExitActionPerformed
@@ -677,6 +681,24 @@ public class UsersManagement extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Phiên bản 1.0", "Giới thiệu", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        this.dispose();
+        LandTransactionsRevenueFrame dialog = new LandTransactionsRevenueFrame(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        this.dispose();
+        HomeTransactionsRevenueFrame dialog = new HomeTransactionsRevenueFrame(new javax.swing.JFrame(), true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void miNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miNewActionPerformed
+        this.dispose();
+        AdminScreenMain dialog = new AdminScreenMain();
+        dialog.setVisible(true);
+    }//GEN-LAST:event_miNewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -751,7 +773,6 @@ public class UsersManagement extends javax.swing.JFrame {
     private javax.swing.JMenuItem miExit;
     private javax.swing.JMenuItem miNew;
     private javax.swing.JMenuItem miOpen;
-    private javax.swing.JMenuItem miSave;
     private javax.swing.JTable tbUser;
     private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtName;
